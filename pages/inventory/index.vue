@@ -103,7 +103,7 @@
                   </tr>
                   <tr v-if="loading">
                     <td colspan="16" class="text-center">
-                      <em>Tunggu sebentar...</em>
+                      <Loading />
                     </td>
                   </tr>
                 </tbody>

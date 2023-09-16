@@ -8,7 +8,7 @@
           <nuxt-link to="/inventory" class="nav-link">🖥 <span class="nav-text">ALAT</span></nuxt-link>
           <!-- <nuxt-link to="/inventory" class="nav-link">👨🏻‍🔧 <span class="nav-text">PERAWATAN</span></nuxt-link> -->
           <nuxt-link to="/auth/signin" v-if="user === null" class="nav-link">🔒 <span class="nav-text">SIGNIN</span></nuxt-link>
-          <nuxt-link to="/auth/signout" v-if="user != null" class="nav-link">❌ <span class="nav-text">SIGNOUT</span></nuxt-link>
+          <nuxt-link to="/auth/signout" v-if="user != null" class="nav-link">👋🏻 <span class="nav-text">SIGNOUT</span></nuxt-link>
         </nav>
       </div>
     </div>
@@ -47,7 +47,6 @@ const user = useSupabaseUser()
   }
 }
 .nav {
-  font-size: 3vh;
   box-shadow: 7px 7px 0 rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   border: 3px solid rgba(255, 255, 255, 0.5)
@@ -55,7 +54,7 @@ const user = useSupabaseUser()
 .nav .nav-link {
   color: #fff;
   transition: all .3s ease;
-  font-size: 2vh;
+  font-size: 1rem;
 }
 .nav .nav-link:hover {
   transform: scale(1.1);

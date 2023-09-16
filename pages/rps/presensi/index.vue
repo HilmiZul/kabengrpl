@@ -11,13 +11,14 @@
           <div class="card-body pb-5">
             <div class="row">
               <div class="col-lg-12">
-                <p v-if="rps.length < 1" class="text-center">Tunggu sebentar...</p>
+                <p v-if="rps.length < 1" class="text-center"><Loading /></p>
               </div>
               <div v-for="(ruang, i) in rps" :key="i" class="col-lg-3" data-aos="zoom-in">
                 <div v-if="ruang.isActive" class="card mb-4">
                   <div class="card-header">
-                    <span class="h5">{{ ruang.rps.namaRoom }}</span>
-                    <em class="text-muted float-end small"> {{ ruang.tanggal }}</em>
+                    <span v-if="user" class="h5"><a href="#" data-bs-toggle="modal" :data-bs-target="`#cctv-${cctv[i].id}`">{{ ruang.rps.namaRoom }}</a></span>
+                    <span v-else class="h5">{{ ruang.rps.namaRoom }}</span>
+                    <!-- <em class="text-muted float-end small"> {{ ruang.tanggal }}</em> -->
                   </div>
                   <div class="card-body active">
                     <table class="table">
@@ -69,7 +70,7 @@
                         class="btn btn-outline-secondary rounded-pill"
                         data-bs-dismiss="modal"
                         :disabled="loading">
-                        <span v-if="loading"><em>tunggu sebentar</em></span>
+                        <span v-if="loading"><Loading /></span>
                         <span else>Selesai</span>
                       </button>
                       <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Belum</button>
@@ -78,6 +79,26 @@
                 </div>
               </div>
               <!-- ./modal selesai -->
+
+              <!-- modal cctv -->
+              <span v-if="user">
+                <div v-for="(item,i ) in cctv" :key="i" class="modal fade" :id="`cctv-${item.id}`">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5>🔴 {{ item.name }}</h5>
+                      </div>
+                      <div class="modal-body">
+                        <em class="text-muted">Belum ada live stream.</em>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">tutup</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <!-- ./cctv -->
             </div>
           </div>
         </div>
@@ -91,11 +112,34 @@ const title = "🙋🏻‍♂️ Presensi Penggunaan RPS"
 useHead({ title: `${title} / Kabeng RPL` })
 
 const client = useSupabaseClient()
+const user = useSupabaseUser()
 const rps = ref([])
 const idPresensiRps = ref(0)
 const noPresensiRps = ref("...")
 const waktu = ref("(memuat...)")
 const loading = ref(false)
+const cctv = reactive([
+  {
+    id: 1,
+    name: 'RPS 1',
+    url: '#',
+  },
+  {
+    id: 2,
+    name: 'RPS 2',
+    url: '#',
+  },
+  {
+    id: 3,
+    name: 'RPS 3',
+    url: '#',
+  },
+  {
+    id: 4,
+    name: 'RPS 4',
+    url: '#',
+  },
+])
 
 onMounted(() => {
   getPresensiRPS()

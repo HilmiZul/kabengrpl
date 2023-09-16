@@ -1,20 +1,17 @@
-# Nuxt 3 Minimal Starter
+# KABENG RPL
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Tech. Stack:
+- [Nuxt v3]((https://nuxt.com/docs/getting-started/introduction))
+- [Supabase](https://supabase.com/docs) (PostgreSQL, Auth. with email)
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
+# or
+npm i
 ```
 
 ## Development Server
@@ -22,14 +19,7 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
 ## Production
@@ -37,27 +27,13 @@ yarn dev
 Build the application for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

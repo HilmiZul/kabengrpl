@@ -20,7 +20,7 @@
                 <nuxt-link to="/rps/presensi" class="btn btn-block text-left">
                   <div class="card bg-presensi mb-3">
                     <div class="card-body">
-                      <h2 class="text-white">PRESENSI LAB.</h2>
+                      <h2 class="text-white">PRESENSI RPS</h2>
                       <div class="layer"></div>
                     </div>
                   </div>

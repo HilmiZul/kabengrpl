@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class="card mb-5">
+        <div class="card data-table mb-5">
           <div class="card-header">
             <h4 class="title">
               {{ title }}
@@ -61,7 +61,7 @@
                     <td colspan="8" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
                   </tr>
                   <tr v-if="loading">
-                    <td colspan="8" class="text-center"><em>Tunggu sebentar...</em></td>
+                    <td colspan="8" class="text-center"><Loading /></td>
                   </tr>
                 </tbody>
               </table>
