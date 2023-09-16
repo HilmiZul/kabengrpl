@@ -22,6 +22,7 @@
 }
 
 body {
+  /* background-color: #000; */
   background-image: linear-gradient( 109.6deg,  rgb(53, 95, 145) 18.9%, rgb(61, 148, 177) 91.1% );
   background-repeat: no-repeat;
   background-position: center center;
