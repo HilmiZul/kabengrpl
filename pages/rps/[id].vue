@@ -99,7 +99,7 @@
                   </tr>
                   <tr v-if="loading">
                     <td colspan="14" class="text-center">
-                      <em>Tunggu sebentar...</em>
+                      <Loading />
                     </td>
                   </tr>
                   <tr v-if="errResult">

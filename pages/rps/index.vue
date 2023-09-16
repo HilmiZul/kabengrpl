@@ -11,7 +11,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div v-if="loading" class="text-center m-5">
-                  <em>Tunggu sebentar...</em>
+                  <Loading />
                 </div>
               </div>
               <div class="container-fluid">

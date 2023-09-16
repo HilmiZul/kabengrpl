@@ -61,7 +61,7 @@
                     <td colspan="8" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
                   </tr>
                   <tr v-if="loading">
-                    <td colspan="8" class="text-center"><em>Tunggu sebentar...</em></td>
+                    <td colspan="8" class="text-center"><Loading /></td>
                   </tr>
                 </tbody>
               </table>
