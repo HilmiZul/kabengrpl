@@ -97,7 +97,7 @@ useHead({ title: "Kabeng RPL / SMKN 4 Tasikmalaya." })
 .layer {
   width: 100%;
   height: 100%;
-  background-color: rgb(86, 146, 159);
+  background-color: rgb(61, 61, 61);
   filter: opacity(.7);
   position: absolute;
   top: 0;
