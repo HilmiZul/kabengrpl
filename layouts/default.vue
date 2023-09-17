@@ -135,6 +135,6 @@ a.link {
 }
 
 .text-small {
-  font-size: .6rem;
+  font-size: .8rem;
 }
 </style>
