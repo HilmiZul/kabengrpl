@@ -86,7 +86,7 @@ async function getItemsBarang() {
       lokasi(namaRoom)
     `)
     .neq('kategori', 4)
-    .order("id")
+    .order("namaBarang")
   
   if(data) items.value = data
   if(error) throw error
