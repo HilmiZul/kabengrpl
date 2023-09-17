@@ -44,7 +44,7 @@ body {
 
 @media only screen and (max-width: 760px) {
   .title {
-    font-size: 1rem !important;
+    font-size: .9rem !important;
   }
   .card-body, p {
     font-size: .9rem !important;
@@ -134,5 +134,7 @@ a.link {
   cursor: pointer;
 }
 
-
+.text-small {
+  font-size: .6rem;
+}
 </style>

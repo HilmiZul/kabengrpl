@@ -8,9 +8,9 @@
               <nuxt-link to="/rps" class="link text-white me-2">⬅</nuxt-link>
               {{ title }}
               <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Tambah</nuxt-link>
-              <span v-if="!loading" class="h6 float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
-              <span v-else class="h6 float-end"><em>loading...</em></span>
-              <span v-if="updateDelete" class="h6 float-end me-2">🔴</span>
+              <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
+              <span v-else class="text-small float-end"><em>loading...</em></span>
+              <span v-if="updateDelete" class="text-small float-end me-2">🔴</span>
             </h4>
           </div>
           <div class="card-body">
@@ -115,8 +115,8 @@
           </div>
           <div class="card-footer">
             <h4 class="title">
-              <span v-if="!loading" class="h6 float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
-              <span v-else class="h6 float-end"><em>loading...</em></span>
+              <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
+              <span v-else class="text-small float-end"><em>loading...</em></span>
             </h4>
           </div>
         </div>

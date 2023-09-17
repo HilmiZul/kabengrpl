@@ -6,10 +6,10 @@
           <div class="card-header">
             <h4 class="title">
               {{ title }}
-              <nuxt-link to="/pinjam/ruang/tambah" class="btn btn-outline-light rounded-pill">✋🏻 Pinjam</nuxt-link>
-              <span v-if="!loading" class="h6 float-end"> {{ items.length }} dari {{ countItem }}</span>
-              <span v-else class="h6 float-end"><em>loading...</em></span>
-              <span v-if="updatePinjam" class="h6 float-end me-2">🔴</span>
+              <nuxt-link to="/pinjam/ruang/tambah" class="btn btn-outline-light btn-sm rounded-pill">✋🏻 Pinjam</nuxt-link>
+              <span v-if="!loading" class="text-small float-end"> {{ items.length }} dari {{ countItem }}</span>
+              <span v-else class="text-small float-end"><em>loading...</em></span>
+              <span v-if="updatePinjam" class="text-small float-end me-2">🔴</span>
             </h4>
           </div>
           <div class="card-body">
@@ -72,8 +72,8 @@
           </div>
           <div class="card-footer">
             <h4 class="title">
-              <span v-if="!loading" class="h6 float-end"> {{ items.length }} dari {{ countItem }}</span>
-              <span v-else class="h6 float-end"><em>loading...</em></span>
+              <span v-if="!loading" class="text-small float-end"> {{ items.length }} dari {{ countItem }}</span>
+              <span v-else class="text-small float-end"><em>loading...</em></span>
             </h4>
           </div>
         </div>
