@@ -1,5 +1,5 @@
 <template>
-  <span class="text-md fs-5">
+  <span class="text-md fs-6">
     ⏳ <em>Bentar lagi loading...</em>
   </span>
 </template>
