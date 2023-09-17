@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <!-- component DarkMode dibungkus dengan client-only agar dapat merender client-side seperti `document` -->
+    <ClientOnly>
+      <DarkMode />
+    </ClientOnly>
     <Header title="Kabeng RPL." />
     <Nav />
     <slot />
