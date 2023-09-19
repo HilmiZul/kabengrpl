@@ -5,7 +5,7 @@
         <div class="card mb-5">
           <div class="card-header">
             <h4 class="title">
-              <nuxt-link to="/rps/presensi" class="link text-white me-2">◀</nuxt-link>
+              <nuxt-link to="/rps/presensi" class="link text-white me-2">back</nuxt-link>
               {{ title }} <span v-if="rps.length > 0">{{ rps[0].rps.namaRoom }}</span>
             </h4>
           </div>

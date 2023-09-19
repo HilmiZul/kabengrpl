@@ -5,7 +5,7 @@
         <div class="card mb-5 text-white">
           <div class="card-header">
             <h4 class="title">
-              <a @click="() => router.back()" class="link text-white me-2">◀</a>
+              <a @click="() => router.back()" class="link text-white me-2">back</a>
               <span v-if="loading"><em>loading</em></span>
               <span v-else>🏫 {{ roomName }}</span>
               <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill ms-2">Tambah</nuxt-link>
