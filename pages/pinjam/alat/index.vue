@@ -29,7 +29,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table class="table table-bordered text-white">
+              <table class="table  text-white">
                 <thead>
                   <tr>
                     <th>NO.</th>

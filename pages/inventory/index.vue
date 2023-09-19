@@ -46,7 +46,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table class="table table-bordered text-white">
+              <table class="table  text-white">
                 <thead>
                   <tr>
                     <th class="align-middle" rowspan="2">NO.</th>
