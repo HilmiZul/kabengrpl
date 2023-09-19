@@ -5,7 +5,7 @@
         <div class="card mb-5 text-white">
           <div class="card-header">
             <h4 class="title">
-              <nuxt-link to="/rps" class="link text-white me-2">back</nuxt-link>
+              <nuxt-link to="/rps" class="link text-white me-2">◀</nuxt-link>
               {{ title }}
               <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Tambah</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
