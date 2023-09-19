@@ -5,7 +5,7 @@
         <div class="card mb-5 text-white">
           <div class="card-header">
             <h4 class="title">
-              <a @click="() => router.back()" class="link text-white me-2">back</a>
+              <a @click="() => router.back()" class="link text-white me-2">◀</a>
               Tambah alat
               <span v-if="loading"><em>loading</em></span>
             </h4>
