@@ -1,8 +1,15 @@
 # KABENG RPL
+Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
+- Inventarisir alat
+- Presensi RPS
+- Peminjaman alat
+- Peminjaman ruangan
 
-Tech. Stack:
-- [Nuxt v3]((https://nuxt.com/docs/getting-started/introduction))
-- [Supabase](https://supabase.com/docs) (PostgreSQL, Auth. with email)
+## Technology Stack
+- [Node.js](https://nodejs.org)
+- Frontend: [Nuxt](https://nuxt.com/docs/getting-started/introduction)
+- BaaS: [Supabase](https://supabase.com/docs)
+- PaaS: [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
 
 ## Setup
 
@@ -36,4 +43,3 @@ Locally preview production build:
 npm run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
