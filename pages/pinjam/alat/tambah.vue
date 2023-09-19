@@ -5,7 +5,7 @@
         <div class="card mb-5">
           <div class="card-header">
             <h4 class="title">
-              <nuxt-link to="/pinjam/alat" class="link text-white me-2">back</nuxt-link>
+              <nuxt-link to="/pinjam/alat" class="link text-white me-2">◀</nuxt-link>
               Pinjam Alat
             </h4>
           </div>

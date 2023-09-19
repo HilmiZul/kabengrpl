@@ -5,7 +5,7 @@
         <div class="card mb-5 text-white">
           <div class="card-header">
             <h4 class="title">
-              <nuxt-link to="/inventory" class="link text-white me-2">⬅</nuxt-link>
+              <nuxt-link to="/inventory" class="link text-white me-2">◀</nuxt-link>
               Edit: 
               <span v-if="loading"><em>loading</em></span>
               <span v-else>{{ tempData.namaBarang }} <em>({{ tempData.kode }})</em></span>
