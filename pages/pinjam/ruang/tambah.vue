@@ -5,7 +5,7 @@
         <div class="card mb-5">
           <div class="card-header">
             <h4 class="title">
-              <nuxt-link to="/pinjam/ruang" class="link text-white me-2">⬅</nuxt-link>
+              <nuxt-link to="/pinjam/ruang" class="link text-white me-2">◀</nuxt-link>
               Pinjam Ruangan
             </h4>
           </div>
