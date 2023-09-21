@@ -31,6 +31,7 @@ const user = useSupabaseUser()
     background-color: #fff;
     border-radius: 0 !important;
     z-index: 1;
+    border: none !important;
   }
   .nav .nav-link {
     color: #6c6c6c !important;

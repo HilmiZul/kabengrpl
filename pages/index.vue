@@ -5,9 +5,9 @@
         <div class="col-lg-12">
           <div class="intro mb-5" data-aos="zoom-in">
             <!-- <img src="@/assets/img/rps.png" class="img"> -->
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-lg-6">
-                <nuxt-link to="/rps/sop" class="btn btn-block text-left">
+                <nuxt-link to="/rps/sop" class="btn text-left">
                   <div class="card bg-barang mb-3">
                     <div class="card-body">
                       <h2 class="text-white">SOP</h2>
@@ -17,7 +17,7 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6">
-                <nuxt-link to="/rps/presensi" class="btn btn-block text-left">
+                <nuxt-link to="/rps/presensi" class="btn text-left">
                   <div class="card bg-presensi mb-3">
                     <div class="card-body">
                       <h2 class="text-white">PRESENSI RPS</h2>
@@ -27,7 +27,7 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6">
-                <nuxt-link to="/pinjam/alat" class="btn btn-block text-left">
+                <nuxt-link to="/pinjam/alat" class="btn text-left">
                   <div class="card bg-pinjam mb-3">
                     <div class="card-body">
                       <h2 class="text-white">PINJAM ALAT</h2>
@@ -37,13 +37,28 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6">
-                <nuxt-link to="/pinjam/ruang" class="btn btn-block text-left">
+                <nuxt-link to="/pinjam/ruang" class="btn text-left">
                   <div class="card bg-pinjam-ruang">
                     <div class="card-body">
                       <h2 class="text-white">PINJAM RUANG</h2>
                       <div class="layer"></div>
                     </div>
                   </div>
+                </nuxt-link>
+              </div>
+              <div class="col-lg-3">
+                <nuxt-link class="btn text-start">
+                  <statistik-alat-rps />
+                </nuxt-link>
+              </div>
+              <div class="col-lg-3">
+                <nuxt-link class="btn text-start">
+                  <issue-alat />
+                </nuxt-link>
+              </div>
+              <div class="col-lg-6">
+                <nuxt-link to="" class="btn text-start">
+                  <perawatan />
                 </nuxt-link>
               </div>
             </div>
@@ -59,7 +74,7 @@ useHead({ title: "Kabeng RPL / SMKN 4 Tasikmalaya." })
 </script>
 
 <style scoped>
-.card {
+.intro .card {
   height: 30vh;
   background: transparent;
   color: #fff;
