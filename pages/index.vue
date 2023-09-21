@@ -38,7 +38,7 @@
               </div>
               <div class="col-lg-6">
                 <nuxt-link to="/pinjam/ruang" class="btn text-left">
-                  <div class="card bg-pinjam-ruang">
+                  <div class="card bg-pinjam-ruang mb-3">
                     <div class="card-body">
                       <h2 class="text-white">PINJAM RUANG</h2>
                       <div class="layer"></div>
