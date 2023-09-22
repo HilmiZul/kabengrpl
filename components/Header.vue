@@ -6,7 +6,7 @@
           <img src="@/assets/img/PPLG.png" class="icon" alt="logo">
           {{ title }}
         </div>
-        <div class="detail-teks">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya..</div>
+        <div class="detail-teks">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya.</div>
       </div>
     </div>
   </div>
