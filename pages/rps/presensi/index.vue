@@ -58,7 +58,7 @@
               <div class="modal fade" id="modalSelesai">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-danger text-white">
                       <h5>🙋🏻‍♂️ Konfirmasi penggunaan RPS</h5>
                     </div>
                     <div class="modal-body">
