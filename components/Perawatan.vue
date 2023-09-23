@@ -2,31 +2,16 @@
   <div class="card mb-3">
     <div class="card-header"><h4>🧑🏻‍🔧 Perawatan.</h4></div>
     <div class="card-body">
-      <table class="table text-white">
+      <span v-if="loading"><Loading /></span>
+      <span v-if="!loading && items.length < 1">🙅🏻‍♂️ Tidak ada issue.</span>
+      <table v-if="items.length > 0" class="table text-white">
         <tbody>
-          <tr>
-            <td width="70%">
-              <div class="fs-6">PC All in one</div>
-              <em>RPS 1 &#8212; 21/09/2023</em>
-            </td>
-            <td>Ringan</td>
-            <td>Replace SSD</td>
-          </tr>
-          <tr>
+          <tr v-for="item in items" :key="item.id">
             <td>
-              <div class="fs-6">Mini PC NUC</div>
-              <em>RPS 4 &#8212; 02/09/2023</em>
+              <div class="fs-6">{{ item.alat.namaBarang }}</div>
+              <em>{{ item.alat.lokasi.namaRoom }} &#8212; {{ item.tanggal }}</em>
             </td>
-            <td>Berat</td>
-            <td>Replace SSD</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="fs-6">PC All in one</div>
-              <em>RPS 1 &#8212; 17/08/2023</em>
-            </td>
-            <td>Sedang</td>
-            <td>Replace SSD</td>
+            <td>{{ item.catatan }}</td>
           </tr>
         </tbody>
       </table>
@@ -36,40 +21,27 @@
 
 <script setup>
 const client = useSupabaseClient()
-const assets = ref([])
-const nonassets = ref([])
-const rps = ref([])
+const items = ref([])
+const loading = ref(true)
 
-onMounted(() => {
-  getCountRps()
-  getCountAset()
-  getCountNonAset()
+onMounted(() => { 
+  getRiwayatPerawatanAlat()
 })
 
-async function getCountRps() {
+async function getRiwayatPerawatanAlat() {
+  loading.value = true
   let { data, error } = await client
-    .from('inv_room')
-    .select()
-    .neq('nomor', 5)
-  if(data) rps.value = data
-  if(error) throw error
-}
-
-async function getCountAset() {
-  let { data, error } = await client
-    .from('inv_barang')
-    .select()
-    .eq('jenis', 'Aset')
-  if(data) assets.value = data
-  if(error) throw error
-}
-
-async function getCountNonAset() {
-  let { data, error } = await client
-    .from('inv_barang')
-    .select()
-    .eq('jenis', 'Non Aset')
-  if(data) nonassets.value = data
+    .from('perawatanAlat')
+    .select(`
+      id, alat(id, namaBarang, lokasi(namaRoom)), 
+      jenis, catatan,tanggal
+    `)
+    .order('tanggal', { ascending: false })
+    .limit(5)
+  if(data) {
+    items.value = data
+    loading.value = false
+  }
   if(error) throw error
 }
 </script>
