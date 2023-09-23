@@ -102,7 +102,6 @@
                                   </tbody>
                                 </table>
                                 <div class="mb-3">
-                                  <label for="kondisi">Kondisi:</label>
                                   <select v-model="kondisi" id="kondisi" class="form-control form-select" required>
                                     <option value="">&#8212; Pilih Kondisi &#8212;</option>
                                     <option value="RR">Rusak Ringan</option>
@@ -111,15 +110,23 @@
                                   </select>
                                 </div>
                                 <div class="mb-3">
-                                  <label for="catatan">Catatan:</label>
-                                  <textarea v-model="catatan" id="catatan" cols="30" rows="3" class="form-control" placeholder="Tulis kendala pada alat ini..." required></textarea>
+                                  <textarea 
+                                    v-model="catatan" 
+                                    :disabled="kondisi.length < 1"
+                                    id="catatan" 
+                                    cols="30" rows="3" 
+                                    class="form-control" 
+                                    placeholder="Tulis kendala pada alat ini..." 
+                                    required></textarea>
                                 </div>
                                 <div class="text-end">
                                   <button 
                                     type="submit" 
-                                    class="btn btn-light rounded-pill me-2"
-                                    data-bs-dismiss="modal" :disabled="loading">
-                                  Ya, alihkan</button>
+                                    class="btn btn-danger rounded-pill me-2"
+                                    data-bs-dismiss="modal" :disabled="loading || kondisi.length < 1 ||catatan.length < 2">
+                                    <span v-if="loading"><Loading /></span>
+                                    <span else>Ya, alihkan</span>
+                                  </button>
                                   <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Batal</button>
                                 </div>
                               </form>
