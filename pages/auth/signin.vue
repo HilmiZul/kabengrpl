@@ -10,10 +10,17 @@
                 <input v-model="email" type="email" class="form-control form-control-lg" placeholder="email" required autocomplete="off">
               </div>
               <div class="form-group mb-3">
-                <input v-model="pass" type="password" class="form-control form-control-lg" placeholder="password" required>
+                <input 
+                  v-model="pass" 
+                  type="password" 
+                  class="form-control form-control-lg" 
+                  :disabled="email.length < 15"
+                  placeholder="password" required>
               </div>
               <div class="form-group">
-                <button class="btn btn-outline-light btn-lg rounded-pill float-end" :disabled="sending">
+                <button 
+                  class="btn btn-outline-light btn-lg rounded-pill float-end" 
+                  :disabled="sending || email.lenght < 15 || pass.length < 8">
                   <span v-if="sending">Signing in...</span>
                   <span v-else>🚀 Signin</span>
                 </button>

@@ -20,26 +20,46 @@
                   <div class="form-group mb-3">
                     <label for="siapa">Siapa?</label>
                     <select v-model="inputRole" id="siapa" class="form-control form-select" required>
+                      <option value="">&#8212; Pilih &#8212;</option>
                       <option value="Guru">Guru</option>
                       <option value="Siswa">Siswa</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
                     <label for="nama">Namamu?</label>
-                    <input v-model="inputPeminjam" id="nama" type="text" class="form-control" required>
+                    <input 
+                      v-model="inputPeminjam" 
+                      id="nama" 
+                      type="text" 
+                      class="form-control"
+                      :disabled="inputRole.length < 1"
+                      placeholder="Tulis nama kamu..."
+                      required>
                   </div>
                   <div class="form-group mb-3">
                     <label for="ruang">Pilih Ruangan</label>
-                    <select v-model="inputRuang" id="ruang" class="form-control form-select" required>
+                    <select 
+                      v-model="inputRuang" 
+                      id="ruang" 
+                      class="form-control form-select" 
+                      :disabled="inputPeminjam.length < 4"
+                      required>
+                      <option value="">&#8212; Pilih &#8212;</option>
                       <option v-for="i in rooms" :key="i.id" :value="i.id">{{ i.namaRoom }}</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
                     <label for="keperluan">Keperluannya apa?</label>
-                    <textarea v-model="inputKeperluan" id="keperluan" class="form-control" cols="30" rows="4" required></textarea>
+                    <textarea 
+                      v-model="inputKeperluan" 
+                      id="keperluan" 
+                      class="form-control" 
+                      :disabled="inputRuang.length < 1"
+                      cols="30" rows="4" required></textarea>
                   </div>
                   <p><em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap ruang yang dipinjam.</em></p>
-                  <button class="btn btn-outline-light btn-lg rounded-pill me-3" :disabled="sending">
+                  <button class="btn btn-outline-light btn-lg rounded-pill me-3" 
+                    :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputRuang.length < 1 || inputKeperluan.length < 8">
                     <span v-if="sending">Mengirim...</span>
                     <span v-else>🙏🏻 Pinjam</span>
                   </button>
