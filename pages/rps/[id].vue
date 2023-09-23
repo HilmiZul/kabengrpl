@@ -72,8 +72,62 @@
                 <tbody>
                   <tr v-for="(item, i) in itemFiltered" :key="item.id">
                     <td class="text-center">{{ i+1 }}.</td>
-                    <td class="text-center">{{ item.kategori.nama }}</td>
-                    <td>{{ item.namaBarang }}</td>
+                    <td>{{ item.kategori.nama }}</td>
+                    <td>
+                      <span v-if="user != null">
+                        <a v-if="item.kondisi === 'B'" @click="updateAlatId(item.id)" href="#" class="link-modal" data-bs-toggle="modal" :data-bs-target="`#issue-${item.id}`">
+                          {{ item.namaBarang }}
+                        </a>
+                        <span v-else>{{ item.namaBarang }}</span>
+                      </span>
+                      <span v-else>{{ item.namaBarang }}</span>
+                      <!-- modal: issue -->
+                      <div v-if="user != null" class="modal fade" :id="`issue-${item.id}`">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header bg-danger text-white"><h5>Alihkan ke <em>Issue</em>?</h5></div>
+                            <div class="modal-body">
+                              <div class="badge bg-danger rounded-pill p-2">🏷 {{ item.kategori.nama }}</div>
+                              <form @submit.prevent="createIssue()">
+                                <table class="table">
+                                  <tbody>
+                                    <tr>
+                                      <td>Alat</td>
+                                      <td>: {{ item.namaBarang }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Kode</td>
+                                      <td>: {{ item.kode }}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <div class="mb-3">
+                                  <label for="kondisi">Kondisi:</label>
+                                  <select v-model="kondisi" id="kondisi" class="form-control form-select" required>
+                                    <option value="">&#8212; Pilih Kondisi &#8212;</option>
+                                    <option value="RR">Rusak Ringan</option>
+                                    <option value="RS">Rusak Sedang</option>
+                                    <option value="RB">Rusak Berat</option>
+                                  </select>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="catatan">Catatan:</label>
+                                  <textarea v-model="catatan" id="catatan" cols="30" rows="3" class="form-control" placeholder="Tulis kendala pada alat ini..." required></textarea>
+                                </div>
+                                <div class="text-end">
+                                  <button 
+                                    type="submit" 
+                                    class="btn btn-light rounded-pill me-2"
+                                    data-bs-dismiss="modal" :disabled="loading">
+                                  Ya, alihkan</button>
+                                  <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Batal</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td>{{ item.spesifikasi }}</td>
                     <td class="text-center">{{ item.jenis }}</td>
                     <td class="text-center">{{ item.kode }}</td>
@@ -136,6 +190,9 @@ const keyword = ref("")
 const loading = ref(true)
 const countItem = ref(0)
 const errResult = ref(false)
+const alatID = ref(0)
+const kondisi = ref("")
+const catatan = ref("")
 
 async function getLokasi() {
   let { data, error } = await client
@@ -207,6 +264,28 @@ async function loadMore() {
   if(error) errResult.value = true
 }
 
+function updateAlatId(id) {
+  alatID.value = id
+}
+
+async function createIssue() {
+  loading.value = true
+  let { error } = await client
+    .from('inv_barang')
+    .update({
+      kondisi: kondisi.value,
+      catatan: catatan.value
+    })
+    .eq('id', alatID.value)
+  if(error) throw  error
+  else {
+    getItems()
+    loading.value = false
+    kondisi.value = ""
+    catatan.value = ""
+  }
+}
+
 function searchPlaceholder() {
   let kywrd = ['Lenovo', 'Canon', 'PC', 'HP/Tablet', 'Gudang', 'RPS']
   let acak = kywrd[Math.floor(Math.random() * kywrd.length)]
@@ -240,5 +319,17 @@ onMounted(() => {
 
 a.btn {
   width: auto !important;
+}
+
+a.link-modal {
+  text-decoration: none;
+  color: inherit !important;
+  border-bottom: 1px dashed #fff !important;
+}
+
+.modal {
+  margin-top: 15%;
+  color: #1f1f1f;
+  text-align: left;
 }
 </style>
