@@ -163,10 +163,15 @@ async function getGuru() {
 }
 
 async function getKelas() {
+  let tingkat = 'XI'
+  if(rpsID === '1' || rpsID === '2') {
+    tingkat = 'XII'
+  }
   let { data, error } = await client
     .from('kelas')
     .select()
     .eq('isActive', false)
+    .eq('tingkat', tingkat)
     .order('namaKelas', { ascending: true })
   if(data) kelas.value = data
   if(error) throw error
