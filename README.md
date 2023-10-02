@@ -13,11 +13,6 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 - BaaS: [Supabase](https://supabase.com/docs)
 - PaaS: [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
 
-## Dependencies
-- [nuxtjs/supabase](https://supabase.nuxtjs.org/) v1.0.2
-- [AOS](https://www.npmjs.com/package/aos) v2.3.4
-- [Bootstrap](https://www.npmjs.com/package/bootstrap) v5.2.3
-
 ## Setup
 
 Make sure to install the dependencies:
