@@ -15,11 +15,9 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 
 ## Setup
 
-Make sure to install the dependencies:
+Install the dependencies:
 
 ```bash
-npm install
-# or
 npm i
 ```
 
