@@ -87,18 +87,22 @@ useHead({ title: "Kabeng RPL / SMKN 4 Tasikmalaya." })
 .card.bg-barang {
   background: transparent url('../assets/img/barang.jpg') no-repeat center center;
   background-size: cover;
+  border: none !important;
 }
 .card.bg-presensi {
   background: transparent url('../assets/img/presensi.jpg') no-repeat center center;
   background-size: cover;
+  border: none !important;
 }
 .card.bg-pinjam {
   background: transparent url('../assets/img/bg.jpg') no-repeat center center;
   background-size: cover;
+  border: none !important;
 }
 .card.bg-pinjam-ruang {
   background: transparent url('../assets/img/RPS.jpg') no-repeat center center;
   background-size: cover;
+  border: none !important;
 }
 .card-body {
   position: relative;
