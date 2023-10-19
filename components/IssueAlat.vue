@@ -12,9 +12,10 @@
               <span v-if="issue.kondisi === 'RS'">🟠</span>
               <span v-if="issue.kondisi === 'RR'">🟡</span>
             </td>
-            <td>
+            <td class="fs-6">
+              <div class="badge bg-light text-dark">{{ issue.lokasi.namaRoom }}</div>
               <div>{{ issue.namaBarang }}</div>
-              <em>{{ issue.lokasi.namaRoom }}</em>
+              <em>{{ issue.catatan }}</em>
             </td>
           </tr>
         </tbody>
@@ -36,7 +37,7 @@ async function getIssues() {
   loading.value = true
   let { data, error } = await client
     .from('inv_barang')
-    .select(`id, namaBarang, lokasi(id, namaRoom), kondisi`)
+    .select(`id, namaBarang, lokasi(id, namaRoom), catatan, kondisi`)
     .in('kondisi', ['RR', 'RS', 'RB'])
     .order('kondisi', { ascending: true })
     .limit(5)

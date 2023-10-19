@@ -2,16 +2,19 @@
   <div class="card mb-3">
     <div class="card-header"><h4>🧑🏻‍🔧 Perawatan.</h4></div>
     <div class="card-body">
-      <span v-if="loading"><Loading /></span>
-      <span v-if="!loading && items.length < 1">🙅🏻‍♂️ Tidak ada issue.</span>
+      <div v-if="loading"><Loading /></div>
+      <div v-if="!loading && items.length < 1" class="text-center">🙅🏻‍♂️ <em>Belum ada riwayat.</em></div>
       <table v-if="items.length > 0" class="table text-white">
         <tbody>
           <tr v-for="item in items" :key="item.id">
-            <td>
-              <div class="fs-6">{{ item.alat.namaBarang }}</div>
-              <em>{{ item.alat.lokasi.namaRoom }} &#8212; {{ item.tanggal }}</em>
+            <td class="fs-6">
+              <div class="badge bg-light text-dark">{{ item.alat.lokasi.namaRoom }}</div>
+              <div>{{ item.alat.namaBarang }}</div>
             </td>
-            <td>{{ item.catatan }}</td>
+            <td>
+              <div class="fs-6"><em>{{ item.catatan }}</em></div>
+              <em>{{ item.tanggal }}</em>
+            </td>
           </tr>
         </tbody>
       </table>

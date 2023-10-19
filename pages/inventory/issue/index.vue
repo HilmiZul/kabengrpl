@@ -9,7 +9,7 @@
               <nuxt-link to="/inventory/issue/baru" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Buat Issue</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ items.length }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
-              <!-- <span v-if="updateDelete" class="text-small float-end me-2">🔴</span> -->
+              <span v-if="updateRecovery" class="text-small float-end me-2">🔴</span>
             </h4>
           </div>
           <div class="card-body">
@@ -35,6 +35,7 @@
                 <thead>
                   <tr class="text-start">
                     <th>NAMA ALAT</th>
+                    <th width="10%">KODE</th>
                     <th width="10%">KONDISI</th>
                     <th width="25%">CATATAN</th>
                     <th width="8%">LOKASI</th>
@@ -93,6 +94,7 @@
                         </div>
                       </div>
                     </td>
+                    <td>{{ item.kode }}</td>
                     <td>
                       <span v-if="item.kondisi === 'RR'">🟡 Rusak Ringan</span>
                       <span v-else-if="item.kondisi === 'RS'">🟠 Rusak Sedang</span>
@@ -138,6 +140,7 @@ const countItem = ref(0)
 const formIdAlat = ref('')
 const formKondisi = ref('')
 const formCatatan = ref('')
+const updateRecovery = ref(false)
 
 onMounted(() => {
   getIssues()
@@ -149,7 +152,7 @@ async function getIssues() {
   let { data, error } = await client
     .from('inv_barang')
     .select(`
-      id, namaBarang, lokasi(id, namaRoom), 
+      id, namaBarang, lokasi(id, namaRoom), kode,
       kategori(nama), kondisi, catatan
     `)
     .in('kondisi', ['RR', 'RS', 'RB'])
@@ -205,7 +208,7 @@ async function updateKondisiAlat() {
 }
 
 async function handleRecovery() {
-  loading.value = true
+  updateRecovery.value = true
   updateKondisiAlat()
   let { error } = await client
     .from('perawatanAlat')
@@ -214,10 +217,11 @@ async function handleRecovery() {
       catatan: formCatatan.value,
       jenis: formKondisi.value,
     }])
+  getIssues()
+  getItemsCount()
   if(error) throw error
   else {
-    getIssues()
-    loading.value = false
+    updateRecovery.value = false
     formKondisi.value = ""
     formCatatan.value = ""
     formIdAlat.value = ""
