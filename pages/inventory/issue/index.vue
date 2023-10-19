@@ -6,7 +6,6 @@
           <div class="card-header">
             <h4 class="title">
               {{ title }}
-              <nuxt-link to="/inventory/issue/baru" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Buat Issue</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ items.length }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
               <span v-if="updateRecovery" class="text-small float-end me-2">🔴</span>
