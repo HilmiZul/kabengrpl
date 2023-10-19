@@ -98,9 +98,10 @@ async function getItemsBarang() {
     .select(`
       id, namaBarang, 
       kategori(id, nama),
-      lokasi(namaRoom)
+      lokasi(namaRoom), kondisi
     `)
     .neq('kategori', 4)
+    .eq('kondisi', 'B')
     .order("namaBarang")
   
   if(data) items.value = data
