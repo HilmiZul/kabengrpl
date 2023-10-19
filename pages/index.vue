@@ -52,7 +52,7 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-3">
-                <nuxt-link class="btn text-start">
+                <nuxt-link to="/inventory/issue" class="btn text-start">
                   <issue-alat />
                 </nuxt-link>
               </div>

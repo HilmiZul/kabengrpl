@@ -7,7 +7,8 @@
             <h4 class="title">
               <nuxt-link to="/rps" class="link text-white me-2">◀</nuxt-link>
               {{ title }}
-              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Tambah</nuxt-link>
+              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill me-2">Tambah</nuxt-link>
+              <nuxt-link to="/inventory/issue" v-if="user" class="btn btn-outline-light btn-sm rounded-pill">Issue</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
               <span v-if="updateDelete" class="text-small float-end me-2">🔴</span>
