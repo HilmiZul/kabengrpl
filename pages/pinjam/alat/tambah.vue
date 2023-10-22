@@ -52,7 +52,7 @@
                       </option>
                     </select>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-3">
                     <label for="keperluan">Keperluannya apa?</label>
                     <textarea 
                       v-model="inputKeperluan" 
@@ -62,7 +62,7 @@
                       cols="30" rows="4" placeholder="Tulis keperluan meminjam alat ini..." required></textarea>
                   </div>
                   <p>
-                    <em>Dengan menekan tombol "Pinjam", saya bertanggung jawabterhadap alat/barang yang dipinjam.</em>
+                    <em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap alat/barang yang dipinjam sesuai dengan <NuxtLink to="/rps/sop" class="link2">SOP poin 2.i</NuxtLink>.</em>
                   </p>
                   <button class="btn btn-outline-light btn-lg rounded-pill me-3" 
                     :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputBarang.length < 1 || inputKeperluan.length < 10">
@@ -138,5 +138,10 @@ async function onPinjam() {
 }
 a.btn {
   width: auto !important;
+}
+a.link2 {
+  text-decoration: none;
+  color: inherit !important;
+  border-bottom-style: dashed;
 }
 </style>
