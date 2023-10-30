@@ -26,12 +26,12 @@
 }
 
 body {
-  /* background-color: #000; */
-  background-image: linear-gradient( 109.6deg,  rgb(53, 95, 145) 18.9%, rgb(61, 148, 177) 91.1% );
+  background-color: rgb(20, 20, 20);
+  /* background-image: linear-gradient( 109.6deg,  rgb(53, 95, 145) 18.9%, rgb(61, 148, 177) 91.1% );
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
 
 }
 
@@ -119,6 +119,10 @@ table tbody tr:hover {
   /* color: #ffffff !important;  */
   background-color: #ffffff42 !important;
   transition: .1s ease-in-out !important;
+}
+
+table tbody tr {
+  border-bottom-color: #909090;
 }
 
 

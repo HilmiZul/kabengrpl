@@ -8,10 +8,10 @@
 
 <script setup>
 const body = document.body;
-const currMode = ref("🔆");
+const currMode = ref("🌙");
 function changeMode() {
   if (currMode.value === "🔆") {
-    body.style.backgroundColor = "rgb(30, 30, 30)";
+    body.style.backgroundColor = "rgb(20, 20, 20)";
     body.style.backgroundImage = "none";
     currMode.value = "🌙";
   } else {
