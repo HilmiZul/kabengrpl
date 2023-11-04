@@ -40,7 +40,7 @@
                   </div>
                   <div class="card-footer text-center">
                     <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-light rounded-pill btnPresensi me-2">Ganti</nuxt-link>
-                    <a href="#" @click="updateIdRpsTemp(ruang.id, ruang.rps.nomor)" data-bs-toggle="modal" data-bs-target="#modalSelesai" class="btn btn-outline-light rounded-pill">Selesai</a>
+                    <a href="#" @click="updateIdRpsTemp(ruang.id, ruang.rps.nomor)" data-bs-toggle="modal" data-bs-target="#modalSelesai" class="btn btn-danger rounded-pill">Selesai</a>
                   </div>
                 </div>
                 <div v-else class="card mb-4 text-muted">
@@ -49,7 +49,7 @@
                     <h3 class="text-center py-3">kosong</h3>
                   </div>
                   <div class="card-footer text-center">
-                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill me-2">Masuk</nuxt-link>
+                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-success rounded-pill me-2">Masuk</nuxt-link>
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header bg-danger text-white">
-                      <h5>🙋🏻‍♂️ Konfirmasi penggunaan RPS</h5>
+                      <h5>Konfirmasi penggunaan RPS</h5>
                     </div>
                     <div class="modal-body">
                       Apakah pembelejaran di <span class="text-penting">RPS {{ noPresensiRps }}</span> sudah selesai?
@@ -108,7 +108,7 @@
 </template>
 
 <script setup>
-const title = "🙋🏻‍♂️ Presensi Penggunaan RPS"
+const title = "Presensi Penggunaan RPS"
 useHead({ title: `${title} / Kabeng RPL` })
 
 const client = useSupabaseClient()

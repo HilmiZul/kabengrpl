@@ -58,10 +58,10 @@
                       cols="30" rows="4" required></textarea>
                   </div>
                   <p><em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap ruang yang dipinjam.</em></p>
-                  <button class="btn btn-outline-light btn-lg rounded-pill me-3" 
+                  <button class="btn btn-success rounded-pill me-3" 
                     :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputRuang.length < 1 || inputKeperluan.length < 8">
                     <span v-if="sending">Mengirim...</span>
-                    <span v-else>🙏🏻 Pinjam</span>
+                    <span v-else>Pinjam</span>
                   </button>
                   <span v-if="isSaved"><em>Terkirim!</em></span>
                 </form>
@@ -91,7 +91,7 @@ async function getItemsRoom() {
     .from('inv_room')
     .select()
     .eq('isActive', false)
-    .neq('namaRoom', 'Gudang')
+    .neq('namaRoom', 'Penyimpanan')
     .order('id')
   
   if(data) rooms.value = data

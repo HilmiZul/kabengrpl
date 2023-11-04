@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3">
-    <div class="card-header"><h4>🧑🏻‍🔧 Perawatan.</h4></div>
+    <div class="card-header"><h4>Perawatan.</h4></div>
     <div class="card-body">
       <div v-if="loading"><Loading /></div>
       <div v-if="!loading && items.length < 1" class="text-center">🙅🏻‍♂️ <em>Belum ada riwayat.</em></div>

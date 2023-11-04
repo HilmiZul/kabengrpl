@@ -141,4 +141,39 @@ a.link {
 .text-small {
   font-size: .8rem;
 }
+
+.bg-success {
+  background-color: #1abc9c !important;
+}
+.bg-danger {
+  background-color: #e74c3c !important;
+}
+
+.btn-danger {
+  border: #e74c3c !important;
+  background-color: #e74c3c !important;
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:visited {
+  border-color: #c0392b !important;
+  background-color: #c0392b !important;
+}
+
+.btn-success {
+  border-color: #1abc9c !important;
+  background-color: #1abc9c !important;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:visited {
+  border-color: #16a085 !important;
+  background-color: #16a085 !important;
+}
+
+.alert-success {
+  border-color: #1abc9c;
+  background-color: #1abc9c;
+  color: #fff;
+}
 </style>

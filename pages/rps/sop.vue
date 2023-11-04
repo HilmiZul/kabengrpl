@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-const title = "👷🏻 SOP (Standard Operating Procedure)"
+const title = "SOP (Standard Operating Procedure)"
 useHead({ title: `${title} / Kabeng RPL` })
 </script>
 

@@ -98,9 +98,9 @@
                     </select>
                   </div>
                   <div class="form-group mb-3">
-                    <button class="btn btn-outline-light btn-lg rounded-pill me-3" :disabled="sending">
+                    <button class="btn btn-success rounded-pill me-3" :disabled="sending">
                       <span v-if="sending">Menyimpan...</span>
-                      <span v-else>💾 Simpan</span>
+                      <span v-else>Simpan</span>
                     </button>
                     <span v-if="isSaved"><em>Tersimpan!</em></span>
                   </div>

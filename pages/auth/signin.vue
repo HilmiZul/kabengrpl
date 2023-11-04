@@ -7,22 +7,22 @@
             <div v-if="errStatus" class="alert alert-danger">email and password are mismatch.</div>
             <form @submit.prevent="signIn">
               <div class="form-group mb-3">
-                <input v-model="email" type="email" class="form-control form-control-lg" placeholder="email" required autocomplete="off">
+                <input v-model="email" type="email" class="form-control" placeholder="email" required autocomplete="off" :disabled="sending">
               </div>
               <div class="form-group mb-3">
                 <input 
                   v-model="pass" 
                   type="password" 
-                  class="form-control form-control-lg" 
-                  :disabled="email.length < 15"
+                  class="form-control" 
+                  :disabled="email.length < 15 || sending"
                   placeholder="password" required>
               </div>
               <div class="form-group">
                 <button 
-                  class="btn btn-outline-light btn-lg rounded-pill float-end" 
+                  class="btn btn-light rounded-pill float-end" 
                   :disabled="sending || email.lenght < 15 || pass.length < 8">
-                  <span v-if="sending">Signing in...</span>
-                  <span v-else>🚀 Signin</span>
+                  <span v-if="sending"><em>Signing in...</em></span>
+                  <span v-else>Sign in</span>
                 </button>
               </div>
             </form>

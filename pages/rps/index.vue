@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-const title = "🏫 Ruang Praktik Siswa"
+const title = "Ruang Praktik Siswa"
 useHead({ title: `${title} / Kabeng RPL` })
 const client = useSupabaseClient()
 

@@ -6,7 +6,7 @@
           <div class="card-header">
             <h4 class="title">
               {{ title }}
-              <nuxt-link to="/pinjam/ruang/tambah" class="btn btn-outline-light btn-sm rounded-pill">✋🏻 Pinjam</nuxt-link>
+              <nuxt-link to="/pinjam/ruang/tambah" class="btn btn-success btn-sm rounded-pill">Pinjam</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ items.length }} dari {{ countItem }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
               <span v-if="updatePinjam" class="text-small float-end me-2">🔴</span>
@@ -67,7 +67,7 @@
               </table>
             </div>
             <div  v-if="!loading && items.length < countItem" class="text-center">
-              <button @click="loadMore" class="btn btn-outline-light rounded-pill">🔎 muat lagi</button>
+              <button @click="loadMore" class="btn btn-light rounded-pill">🔎 muat lagi</button>
             </div>
           </div>
           <div class="card-footer">
@@ -83,7 +83,7 @@
 </template>
 
 <script setup>
-const title = "🏢 Peminjaman Ruangan"
+const title = "Peminjaman Ruangan"
 useHead({ title: `${title} / Kabeng RPL` })
 const user = useSupabaseUser()
 const client = useSupabaseClient()

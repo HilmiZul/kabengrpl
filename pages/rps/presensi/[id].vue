@@ -38,9 +38,9 @@
                   <p>
                     <em>Dengan menekan tombol "Simpan", saya bertanggung jawab terhadap Kelas ini selama waktu tertentu.</em>
                   </p>
-                  <button class="btn btn-outline-light btn-lg rounded-pill me-3" :disabled="sending">
+                  <button class="btn btn-success rounded-pill me-3" :disabled="sending">
                     <span v-if="sending">Mengirim...</span>
-                    <span v-else>💾 Simpan</span>
+                    <span v-else>Simpan</span>
                   </button>
                   <span v-if="isSaved"><em>Tersimpan!</em></span>
                 </form>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-const title = `🙋🏻‍♂️ Isi Presensi`
+const title = `Isi Presensi`
 useHead({ title: `${title} / Kabeng RPL` })
 const client = useSupabaseClient()
 const route = useRoute()

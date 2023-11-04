@@ -1,9 +1,9 @@
 <template>
   <div class="card mb-3">
-    <div class="card-header"><h4>🐞 Issue.</h4></div>
+    <div class="card-header"><h4>Issue.</h4></div>
     <div class="card-body">
       <span v-if="loading"><Loading /></span>
-      <span v-if="!loading && issues.length < 1">🙅🏻‍♂️ Tidak ada issue.</span>
+      <span v-if="!loading && issues.length < 1">Tidak ada issue.</span>
       <table v-if="issues.length > 0" class="table text-white">
         <tbody>
           <tr v-for="issue in issues" :key="issue.id">

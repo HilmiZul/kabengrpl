@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-const title = "👋🏻 Signing out..."
+const title = "Signing out..."
 useHead({ title: `${title} / Kabeng RPL`})
 
 const user = useSupabaseClient()

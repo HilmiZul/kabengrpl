@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3">
-    <div class="card-header"><h4>💯 Statistik.</h4></div>
+    <div class="card-header"><h4>Statistik.</h4></div>
     <div class="card-body">
       <table class="table text-white">
         <tbody class="fs-6">
