@@ -8,7 +8,7 @@
               <nuxt-link to="/rps" class="link text-white me-2">◀</nuxt-link>
               {{ title }}
               <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-success btn-sm rounded-pill me-2">Tambah</nuxt-link>
-              <nuxt-link to="/inventory/issue" v-if="user" class="btn btn-danger btn-sm rounded-pill">Issue</nuxt-link>
+              <nuxt-link to="/inventory/issue" v-if="user" class="btn btn-light btn-sm rounded-pill">Issue</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
               <span v-if="updateDelete" class="text-small float-end me-2">🔴</span>
@@ -127,7 +127,7 @@
 </template>
 
 <script setup>
-const title = "💻 Semua Alat"
+const title = "Semua Alat"
 useHead({ title: `${title } / Kabeng RPL` })
 const user = useSupabaseUser()
 const client = useSupabaseClient()

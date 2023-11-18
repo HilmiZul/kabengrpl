@@ -1,6 +1,6 @@
 <template>
-  <div class="dark-mode text-end">
-    <button @click="changeMode()" class="btn btn-lg rounded-pill">
+  <div class="dark-mode text-end me-3">
+    <button @click="changeMode()" class="btn btn-lg rounded-pill p-0">
       {{ currMode }}
     </button>
   </div>

@@ -7,6 +7,7 @@
           <nuxt-link to="/rps" class="nav-link"><span class="nav-text">RPS</span></nuxt-link>
           <nuxt-link to="/inventory" class="nav-link"><span class="nav-text">ALAT</span></nuxt-link>
           <!-- <nuxt-link to="/inventory" class="nav-link">👨🏻‍🔧 <span class="nav-text">PERAWATAN</span></nuxt-link> -->
+          <nuxt-link to="/settings" v-if="user" class="nav-link"><span class="nav-text">SETTINGS</span></nuxt-link>
           <nuxt-link to="/auth/signin" v-if="user === null" class="nav-link"><span class="nav-text">SIGNIN</span></nuxt-link>
           <nuxt-link to="/auth/signout" v-if="user != null" class="nav-link"><span class="nav-text">SIGNOUT</span></nuxt-link>
         </nav>
@@ -41,6 +42,8 @@ const user = useSupabaseUser()
     color: #fff !important;
     padding-left: 1em;
     padding-right: 1em;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
   }
   /* .nav .nav-link .nav-text {
     display: none;
@@ -59,7 +62,9 @@ const user = useSupabaseUser()
 .nav .nav-link {
   color: #fff;
   transition: all .3s ease;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .nav .nav-link:hover {
   transform: scale(1.1);

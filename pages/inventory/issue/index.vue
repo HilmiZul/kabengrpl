@@ -128,7 +128,7 @@
 </template>
 
 <script setup>
-const title = "🐞 Issues"
+const title = "Issues"
 useHead({ title: `${title } / Kabeng RPL` })
 const user = useSupabaseUser()
 const client = useSupabaseClient()

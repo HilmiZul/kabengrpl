@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-3">
-        <footer class="text-center mb-5 bg-light p-2 rounded-pill text-muted small">
+        <footer class="text-center mb-5 p-2 rounded-pill text-muted small">
           &copy; 2022 - {{ year }}. Kabeng RPL.
         </footer>
       </div>

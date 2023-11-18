@@ -104,6 +104,11 @@ h4 {
   border-radius: 10px !important;
 }
 
+table {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 table tbody {
   font-size: small;
 }

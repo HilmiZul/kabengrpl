@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-lg-12 title">
+      <div class="col-lg-12 title pb-3">
         <div class="intro-teks s6 folk" data-aos="zoom-in">
           <img src="@/assets/img/PPLG.png" class="icon" alt="logo">
           {{ title }}
         </div>
-        <div class="detail-teks">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya.</div>
+        <div class="detail-teks my-2">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya.</div>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ const props = defineProps({
   font-size: 9vw;
 }
 .s6 {
-  font-size: 6vh;
+  font-size: 2rem;
 }
 .intro-teks {
   color: rgb(255, 255, 255);
@@ -36,14 +36,13 @@ const props = defineProps({
 .detail-teks {
   font-style: italic;
   color: #fff;
-  font-size: 1.5vh;
-  margin-bottom: 2vh;
+  font-size: .8rem;
 }
 
 .icon {
-  width: 3rem;
-  -webkit-filter: drop-shadow(5px 5px 0px #ffffff84);
-  filter: drop-shadow(5px 5px 0px #ffffff84);
+  width: 2rem;
+  -webkit-filter: drop-shadow(3px 3px 0px #ffffff84);
+  filter: drop-shadow(3px 3px 0px #ffffff84);
 }
 
 .title {
@@ -55,7 +54,6 @@ const props = defineProps({
     text-align: center !important;
   }
   .intro-teks {
-    margin: 0 0 20px 0 !important;
     font-size: 2rem;
   }
   .icon {
