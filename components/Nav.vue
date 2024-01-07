@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-auto">
         <nav class="nav justify-content-center pt-3 pb-3 mb-4 proto rounded-pill">
-          <nuxt-link to="/" class="nav-link"><span class="nav-text">SPECIAL</span></nuxt-link>
+          <nuxt-link to="/" class="nav-link"><span class="nav-text">HOME</span></nuxt-link>
           <nuxt-link to="/rps" class="nav-link"><span class="nav-text">RPS</span></nuxt-link>
           <nuxt-link to="/inventory" class="nav-link"><span class="nav-text">ALAT</span></nuxt-link>
           <!-- <nuxt-link to="/inventory" class="nav-link">👨🏻‍🔧 <span class="nav-text">PERAWATAN</span></nuxt-link> -->
