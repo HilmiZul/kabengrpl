@@ -155,8 +155,8 @@ async function getItems() {
       namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
       sumber(namaSumber), kode, lokasi(namaRoom)
     `)
-    .range(0, 19)
-    .order('id')
+    .range(0, 29)
+    .order('tahun', { ascending: false } )
   
   if(data) {
     items.value = data
@@ -169,7 +169,7 @@ async function getItems() {
 async function loadMore() {
   loading.value = true
   let limitStart = items.value.length
-  let limitEnd = limitStart + 19
+  let limitEnd = limitStart + 29
   let { data, error } = await client
     .from('inv_barang')
     .select(`
@@ -178,7 +178,7 @@ async function loadMore() {
       sumber(namaSumber), kode, lokasi(namaRoom)
     `)
     .range(limitStart, limitEnd)
-    .order('id')
+    .order('tahun', { ascending: false })
   
     if(data) {
       for (let i = 0; i < data.length; i++) {

@@ -109,7 +109,7 @@ async function getItemsCount() {
 async function loadMore() {
   loading.value = true
   let limitStart = items.value.length
-  let limitEnd = limitStart + 19
+  let limitEnd = limitStart + 29
   let { data, error } = await client
     .from('inv_pinjam')
     .select(`
@@ -162,7 +162,7 @@ async function getPeminjam() {
     `)
     .eq('kategori', 'Barang')
     .order('tgl_kembali', { ascending: false})
-    .limit(20)
+    .limit(30)
   
   if(data) {
     // ubah format tanggal dan waktu
