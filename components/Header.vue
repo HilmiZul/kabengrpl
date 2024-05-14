@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-12 title pb-3">
         <div class="intro-teks s6 folk" data-aos="zoom-in">
-          <img src="@/assets/img/PPLG.png" class="icon" alt="logo">
+          <img src="@/assets/img/PPLG.webp" class="icon" alt="logo">
           {{ title }}
         </div>
         <div class="detail-teks my-2">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya.</div>
@@ -21,12 +21,6 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.s12 {
-  font-size: 12vw;
-}
-.s9 {
-  font-size: 9vw;
-}
 .s6 {
   font-size: 2rem;
 }

@@ -45,15 +45,8 @@ const user = useSupabaseUser()
     padding-top: 1em !important;
     padding-bottom: 1em !important;
   }
-  /* .nav .nav-link .nav-text {
-    display: none;
-  } */
 }
-@media only screen and (min-width: 760px) {
-  .drawer {
-    display: none;
-  }
-}
+
 .nav {
   box-shadow: 7px 7px 0 rgba(255, 255, 255, 0.5);
   border-radius: 10px;

@@ -111,18 +111,18 @@ async function onSubmit() {
 
 // simpan riwayat ngajar guru 
 // PR besok lagi...
-async function submitRiwayatPresensiGuru() {
-  let { error } = await client
-    .from('riwayatPresensi')
-    .insert({
-      tanggal: tempData.value.tanggal,
-      guru: tempData.value.guru,
-      mapel: tempData.value.mapel,
-      rps: tempData.value.rps,
-      jp: 0,
-      kelas: tempData.value.kelas
-    })
-}
+// async function submitRiwayatPresensiGuru() {
+//   let { error } = await client
+//     .from('riwayatPresensi')
+//     .insert({
+//       tanggal: tempData.value.tanggal,
+//       guru: tempData.value.guru,
+//       mapel: tempData.value.mapel,
+//       rps: tempData.value.rps,
+//       jp: 0,
+//       kelas: tempData.value.kelas
+//     })
+// }
 
 async function getRPS() {
   let { data, error } = await client
