@@ -47,7 +47,7 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-3">
-                <nuxt-link class="btn text-start">
+                <nuxt-link to="#" class="btn text-start">
                   <statistik-alat-rps />
                 </nuxt-link>
               </div>
@@ -57,7 +57,7 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6">
-                <nuxt-link to="" class="btn text-start">
+                <nuxt-link to="#" class="btn text-start">
                   <perawatan />
                 </nuxt-link>
               </div>
