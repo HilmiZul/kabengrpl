@@ -35,6 +35,7 @@ const props = defineProps({
 
 .icon {
   width: 2rem;
+  height: auto;
   -webkit-filter: drop-shadow(3px 3px 0px #ffffff84);
   filter: drop-shadow(3px 3px 0px #ffffff84);
 }
