@@ -6,19 +6,31 @@
         <tbody class="fs-6">
           <tr>
             <th>Ruang Praktik</th>
-            <td>: {{ rps.length }} ruang</td>
+            <td>: {{ jumlahRPS }} ruang</td>
+          </tr>
+          <tr>
+            <th>Semua alat</th>
+            <td>: {{ jumlahAlat }} item</td>
           </tr>
           <tr>
             <th>Aset</th>
-            <td>: {{ assets.length }} items</td>
+            <td>: {{ jumlahAsset }} item</td>
           </tr>
           <tr>
             <th>Non-Aset</th>
-            <td>: {{ nonassets.length }} items</td>
+            <td>: {{ jumlahNonAsset }} item</td>
+          </tr>
+          <tr>
+            <th>PC</th>
+            <td>: {{ jumlahPC }} unit</td>
+          </tr>
+          <tr>
+            <th>Laptop</th>
+            <td>: {{ jumlahLaptop }} unit</td>
           </tr>
           <tr>
             <th>Issues</th>
-            <td>: {{ issue.length }} items</td>
+            <td>: {{ jumlahIssue.length }} issues</td>
           </tr>
         </tbody>
       </table>
@@ -28,42 +40,38 @@
 
 <script setup>
 const client = useSupabaseClient()
-const assets = ref([])
-const nonassets = ref([])
-const rps = ref([])
-const issue = ref(0)
-
-onMounted(() => {
-  getCountRps()
-  getCountAset()
-  getCountNonAset()
-  getIssueCount()
-})
+const jumlahAsset = ref(0)
+const jumlahNonAsset = ref(0)
+const jumlahRPS = ref(0)
+const jumlahIssue = ref(0)
+const jumlahPC = ref(0)
+const jumlahLaptop = ref(0)
+const jumlahAlat = ref(0)
 
 async function getCountRps() {
-  let { data, error } = await client
+  let { data, error, count } = await client
     .from('inv_room')
     .select('*', { count: 'exact' })
     .neq('nomor', 5)
-  if(data) rps.value = data
+  if(data) jumlahRPS.value = count
   if(error) throw error
 }
 
 async function getCountAset() {
   let { data, error } = await client
-    .from('inv_barang')
-    .select('*', { count: 'exact' })
-    .eq('jenis', 'Aset')
-  if(data) assets.value = data
+    .from('jumlahasset')
+    .select()
+    .single()
+  if(data) jumlahAsset.value = data.count
   if(error) throw error
 }
 
 async function getCountNonAset() {
   let { data, error } = await client
-    .from('inv_barang')
-    .select('*', { count: 'exact' })
-    .eq('jenis', 'Non Aset')
-  if(data) nonassets.value = data
+    .from('jumlahnonasset')
+    .select()
+    .single()
+  if(data) jumlahNonAsset.value = data.count
   if(error) throw error
 }
 
@@ -75,10 +83,44 @@ async function getIssueCount() {
     .order('kondisi', { ascending: true })
     .limit(5)
   if(data) {
-    issue.value = data
+    jumlahIssue.value = data
   }
   if(error) throw error
 }
+
+async function getCountPc() {
+  let { data, error } = await client
+    .from('jumlahpc')
+    .select()
+    .single()
+  if(data) jumlahPC.value = data.count
+}
+
+async function getCountLaptop() {
+  let { data, error } = await client
+    .from('jumlahlaptop')
+    .select()
+    .single()
+  if(data) jumlahLaptop.value = data.count
+}
+
+async function getCountAlat() {
+  let { data, error } = await client
+    .from('jumlahalat')
+    .select()
+    .single()
+  if(data) jumlahAlat.value = data.count
+}
+
+onMounted(() => {
+  getCountRps()
+  getCountAset()
+  getCountNonAset()
+  getIssueCount()
+  getCountPc()
+  getCountLaptop()
+  getCountAlat()
+})
 </script>
 
 <style scoped>
