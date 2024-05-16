@@ -7,7 +7,7 @@
             <h4 class="title">{{ title }}</h4>
           </div>
           <div class="card-body ps-4 pe-4">
-            <p>Setiap alat/bahan tersebar di Lokasi berikut</p>
+            <p>Setiap alat tersebar di Lokasi berikut</p>
             <div class="row">
               <div class="col-lg-12">
                 <div v-if="loading" class="text-center m-5">
