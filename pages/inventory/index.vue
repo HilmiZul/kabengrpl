@@ -7,7 +7,7 @@
             <h4 class="title">
               <nuxt-link to="/rps" class="link text-white me-2">◀</nuxt-link>
               {{ title }}
-              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-success btn-sm rounded-pill me-2">Tambah</nuxt-link>
+              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill me-2">Tambah</nuxt-link>
               <nuxt-link to="/inventory/issue" v-if="user" class="btn btn-light btn-sm rounded-pill">Issue</nuxt-link>
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
@@ -61,7 +61,7 @@
                     <th class="align-middle" width="4%" rowspan="2">TAHUN</th>
                     <th class="align-middle" width="4%" rowspan="2">LOKASI</th>
                     <th class="align-middle" colspan="4">KONDISI</th>
-                    <th v-if="user" class="align-middle text-center" rowspan="2" width="7%">ACTION</th>
+                    <th v-if="user" class="align-middle text-center" rowspan="2" width="7%">ACT.</th>
                   </tr>
                   <tr>
                     <th>B</th>

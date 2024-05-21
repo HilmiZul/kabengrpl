@@ -19,13 +19,13 @@
                   <div v-for="(room,i) in rooms" :key="room.id" class="col-lg-4">
                     <router-link :to="{ path: '/rps/' + room.id }" class="btn btn-block">
                       <div class="card item mt-3 mb-3 text-white" data-aos="zoom-in">
-                        <div class="badge bg-light text-dark">
+                        <!-- <div class="badge bg-light text-dark">
                           <div class="teks" v-if="i == 0 && rps1.length > 0">{{ rps1.length }}</div>
                           <div class="teks" v-else-if="i == 1">{{ rps2.length }}</div>
                           <div class="teks" v-else-if="i == 2">{{ rps3.length }}</div>
                           <div class="teks" v-else-if="i == 3">{{ rps4.length }}</div>
                           <div class="teks" v-else>{{ rps5.length }}</div>
-                        </div>
+                        </div> -->
                         <div class="card-body py-5">
                           <h3>{{ room.namaRoom }}</h3>
                         </div>

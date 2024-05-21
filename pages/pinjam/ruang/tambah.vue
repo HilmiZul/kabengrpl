@@ -58,7 +58,7 @@
                       cols="30" rows="4" required></textarea>
                   </div>
                   <p><em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap ruang yang dipinjam.</em></p>
-                  <button class="btn btn-success rounded-pill me-3" 
+                  <button class="btn btn-outline-light rounded-pill me-3" 
                     :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputRuang.length < 1 || inputKeperluan.length < 8">
                     <span v-if="sending">Mengirim...</span>
                     <span v-else>Pinjam</span>

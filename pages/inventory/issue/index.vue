@@ -80,7 +80,7 @@
                                 <div class="text-end">
                                   <button 
                                     type="submit" 
-                                    class="btn btn-success rounded-pill me-2"
+                                    class="btn btn-outline-light text-dark rounded-pill me-2"
                                     data-bs-dismiss="modal" :disabled="loading || formCatatan.length < 2">
                                     <span v-if="loading"><Loading /></span>
                                     <span else>Ya, Sudah</span>

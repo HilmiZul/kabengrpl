@@ -64,7 +64,7 @@
                   <p>
                     <em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap alat/barang yang dipinjam sesuai dengan <NuxtLink to="/rps/sop" class="link2">SOP poin 2.i</NuxtLink>.</em>
                   </p>
-                  <button class="btn btn-success rounded-pill me-3" 
+                  <button class="btn btn-outline-light rounded-pill me-3" 
                     :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputBarang.length < 1 || inputKeperluan.length < 10">
                     <span v-if="sending">Mengirim...</span>
                     <span v-else>Pinjam</span>

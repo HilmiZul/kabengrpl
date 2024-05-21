@@ -8,10 +8,11 @@
               <a @click="() => router.back()" class="link text-white me-2">◀</a>
               <span v-if="loading"><em>loading</em></span>
               <span v-else>{{ roomName }}</span>
-              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-success btn-sm rounded-pill ms-2">Tambah</nuxt-link>
+              <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill ms-2">Tambah</nuxt-link>
 
               <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
+              <span v-if="updateDelete" class="text-small float-end me-2">🔴</span>
             </h4>
           </div>
           <div class="card-body">
@@ -26,7 +27,7 @@
                     type="search" 
                     class="form-control" 
                     :placeholder="searchPlaceholder()"
-                    :disabled="items.length < 1">
+                    :disabled="loading">
                 </div>
               </div>
               <div class="col-lg-2">
@@ -52,7 +53,7 @@
                   <tr>
                     <th class="align-middle" rowspan="2">NO.</th>
                     <th class="align-middle" width="5%" rowspan="2">KAT.</th>
-                    <th class="align-middle" rowspan="2">NAMA</th>
+                    <th class="align-middle" width="15%" rowspan="2">NAMA</th>
                     <th class="align-middle" width="40%" rowspan="2">SPESIFIKASI</th>
                     <th class="align-middle" width="5%" rowspan="2">JENIS</th>
                     <th class="align-middle" width="8%" rowspan="2">KODE</th>
@@ -61,6 +62,7 @@
                     <th class="align-middle" width="4%" rowspan="2">TAHUN</th>
                     <th class="align-middle" width="4%" rowspan="2">LOKASI</th>
                     <th class="align-middle" colspan="4">KONDISI</th>
+                    <th v-if="user" class="align-middle text-center" rowspan="2" width="7%">ACT.</th>
                   </tr>
                   <tr>
                     <th>B</th>
@@ -154,12 +156,16 @@
                     <td class="text-center">
                       <span v-if="item.kondisi === 'RB'">🔴</span>
                     </td>
+                    <td v-if="user">
+                      <nuxt-link :to="{ path: '/inventory/edit/' + item.id}" class="btn btn-light btn-sm me-2">✏️</nuxt-link>
+                      <!-- <button @click="deleteItem(item.id, i)" class="btn btn-light btn-sm">❌</button> -->
+                    </td>
                   </tr>
                   <tr v-if="itemFiltered.length < 1 && !loading">
                     <td colspan="14" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
                   </tr>
                   <tr v-if="loading">
-                    <td colspan="14" class="text-center">
+                    <td colspan="15" class="text-center">
                       <Loading />
                     </td>
                   </tr>
@@ -200,6 +206,7 @@ const errResult = ref(false)
 const alatID = ref(0)
 const kondisi = ref("")
 const catatan = ref("")
+const updateDelete = ref(false)
 
 async function getLokasi() {
   let { data, error } = await client
@@ -292,6 +299,24 @@ async function createIssue() {
     catatan.value = ""
   }
 }
+
+// HAPUS ITEM ALAT HARUS DARI HALAMAN ALAT!!
+// async function deleteItem(idItem, index) {
+//   updateDelete.value = true
+//   let confirmed = confirm('JANGAN SEMBARANGAN HAPUS ALAT DARI INVENTORY! Apakah yakin?')
+//   if(confirmed) {
+//     let { error } = await client
+//       .from('inv_barang')
+//       .delete()
+//       .match({ id: idItem})
+//     if(!error) {
+//       getItems()
+//       getItemsCount()
+//       updateDelete.value = false
+//     }
+//     if(error) throw error
+//   }
+// }
 
 function searchPlaceholder() {
   let kywrd = ['Lenovo', 'Canon', 'PC', 'HP/Tablet', 'Gudang', 'RPS']

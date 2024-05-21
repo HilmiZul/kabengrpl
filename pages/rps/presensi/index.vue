@@ -39,7 +39,7 @@
                     </table>
                   </div>
                   <div class="card-footer text-center">
-                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-light rounded-pill btnPresensi me-2">Ganti</nuxt-link>
+                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill btnPresensi me-2">Ganti</nuxt-link>
                     <a href="#" @click="updateIdRpsTemp(ruang.id, ruang.rps.nomor)" data-bs-toggle="modal" data-bs-target="#modalSelesai" class="btn btn-danger rounded-pill">Selesai</a>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                     <h3 class="text-center py-3">kosong</h3>
                   </div>
                   <div class="card-footer text-center">
-                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-success rounded-pill me-2">Masuk</nuxt-link>
+                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill me-2">Masuk</nuxt-link>
                   </div>
                 </div>
               </div>
