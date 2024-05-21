@@ -6,6 +6,9 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 - Peminjaman alat
 - Peminjaman ruangan
 - Presensi RPS
+- Pengaturan
+  - Alat (add, change)
+  - Ruang (add, change)
 
 ## Technology Stack
 - [Node.js](https://nodejs.org) v19.6.1
