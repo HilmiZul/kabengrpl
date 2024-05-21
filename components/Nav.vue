@@ -7,7 +7,7 @@
           <nuxt-link to="/rps" class="nav-link"><span class="nav-text">RPS</span></nuxt-link>
           <nuxt-link to="/inventory" class="nav-link"><span class="nav-text">ALAT</span></nuxt-link>
           <!-- <nuxt-link to="/inventory" class="nav-link">👨🏻‍🔧 <span class="nav-text">PERAWATAN</span></nuxt-link> -->
-          <nuxt-link to="/settings" v-if="user" class="nav-link"><span class="nav-text">SETTINGS</span></nuxt-link>
+          <nuxt-link to="/pengaturan" v-if="user" class="nav-link"><span class="nav-text">PENGATURAN</span></nuxt-link>
           <nuxt-link to="/auth/signin" v-if="user === null" class="nav-link"><span class="nav-text">SIGNIN</span></nuxt-link>
           <nuxt-link to="/auth/signout" v-if="user != null" class="nav-link"><span class="nav-text">SIGNOUT</span></nuxt-link>
         </nav>
