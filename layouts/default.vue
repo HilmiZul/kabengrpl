@@ -72,8 +72,9 @@ body {
   border-bottom-left-radius: 30px !important;
 }
 .form-control {
-  border-top-right-radius: 30px !important;
-  border-bottom-right-radius: 30px !important;
+  /* border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important; */
+  /* border-radius: 7px !important; */
 }
 .form-control:focus {
   box-shadow: none !important;
