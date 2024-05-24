@@ -32,7 +32,7 @@
                       </div>
                     </router-link>
                   </div>
-                  <div v-if="!loading" class="col-lg-4">
+                  <!-- <div v-if="!loading" class="col-lg-4">
                     <router-link to="/inventory" class="btn btn-block">
                       <div class="card item text-white mt-3" data-aos="zoom-in">
                         <div class="badge bg-light text-dark">
@@ -43,7 +43,7 @@
                         </div>
                       </div>
                     </router-link>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -61,21 +61,9 @@ const client = useSupabaseClient()
 
 const rooms = ref([])
 const loading = ref(true)
-const rps1 = ref(0)
-const rps2 = ref(0)
-const rps3 = ref(0)
-const rps4 = ref(0)
-const rps5 = ref(0)
-const semua = ref(0)
 
 onMounted(() => {
   getRooms()
-  count1()
-  count2()
-  count3()
-  count4()
-  count5()
-  getInventory()
 })
 
 // semua data RPS
@@ -98,47 +86,6 @@ async function getInventory() {
     .from('inv_barang')
     .select('id')
   if(data) semua.value = data
-  if (error) throw error
-}
-
-async function count1() {
-  let {data, error} = await client
-    .from('inv_barang')
-    .select('id')
-    .eq('lokasi', 6)
-  if(data) rps1.value = data
-  if (error) throw error
-}
-async function count2() {
-  let {data, error} = await client
-    .from('inv_barang')
-    .select('id')
-    .eq('lokasi', 7)
-  if(data) rps2.value = data
-  if (error) throw error
-}
-async function count3() {
-  let {data, error} = await client
-    .from('inv_barang')
-    .select('id')
-    .eq('lokasi', 8)
-  if(data) rps3.value = data
-  if (error) throw error
-}
-async function count4() {
-  let {data, error} = await client
-    .from('inv_barang')
-    .select('id')
-    .eq('lokasi', 9)
-  if(data) rps4.value = data
-  if (error) throw error
-}
-async function count5() {
-  let {data, error} = await client
-    .from('inv_barang')
-    .select('id')
-    .eq('lokasi', 10)
-  if(data) rps5.value = data
   if (error) throw error
 }
 </script>
