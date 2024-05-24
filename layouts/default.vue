@@ -14,15 +14,15 @@
 <style>
 @font-face {
   font-family: 'Prototype';
-  src: url('./assets/fonts/Prototype.ttf');
+  src: url('~/assets/fonts/Prototype.ttf');
 }
 @font-face {
   font-family: 'Folktale Medium';
-  src: url('./assets/fonts/Folktale-lpAw.ttf');
+  src: url('~/assets/fonts/Folktale-lpAw.ttf');
 }
 @font-face {
   font-family: 'Quicksand Semibold';
-  src: url('./assets/fonts/Quicksand-SemiBold.ttf');
+  src: url('~/assets/fonts/Quicksand-SemiBold.ttf');
 }
 
 body {
