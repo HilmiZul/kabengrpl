@@ -39,7 +39,7 @@
                     </table>
                   </div>
                   <div class="card-footer text-center">
-                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill btnPresensi me-2">Ganti</nuxt-link>
+                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill me-2">Ganti</nuxt-link>
                     <a href="#" @click="updateIdRpsTemp(ruang.id, ruang.rps.nomor)" data-bs-toggle="modal" data-bs-target="#modalSelesai" class="btn btn-danger rounded-pill">Selesai</a>
                   </div>
                 </div>
@@ -221,9 +221,6 @@ table.table tbody {
   width: auto !important;
 }
 .btn-outline-light:hover {
-  color: #2a2a2a !important;
-}
-.btn.btnPresensi {
   color: #2a2a2a !important;
 }
 
