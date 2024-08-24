@@ -32,7 +32,7 @@
               <div class="col-lg-2">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">&nbsp;🚀</span>
+                    <span class="input-group-text">&nbsp;🧩</span>
                   </div>
                   <select v-model="keyword" id="filterCepat" class="form-control form-select">
                     <option value="">Filter cepat</option>
