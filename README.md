@@ -11,9 +11,7 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
   - Ruang (add, change)
 
 ## Technology Stack
-- [Node.js](https://nodejs.org) v19.6.1
-- Frontend: [Nuxt](https://nuxt.com/docs/getting-started/introduction) v3.7.0 (Vue 3)
-- BaaS: [Supabase](https://supabase.com/docs)
+- Vue/[Nuxt](https://nuxt.com/docs/getting-started/introduction)
 - PaaS: [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
 
 ## Setup
