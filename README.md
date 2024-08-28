@@ -12,7 +12,8 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 
 ## Technology Stack
 - Vue/[Nuxt](https://nuxt.com/docs/getting-started/introduction)
-- PaaS: [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
+- *(Ask Dev. for BE and DBMS)*
 
 ## Setup
 
