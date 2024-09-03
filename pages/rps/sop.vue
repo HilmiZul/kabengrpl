@@ -11,8 +11,9 @@
             <ol>
               <li>Waktu Operasional pukul 07.00 - 17.00 dan istirahat pukul 12.00 - 13.00 WIB</li>
               <li>
-                Seluruh pengguna Laboratorium Komputer diwajibkan:
+                Seluruh Siswa Laboratorium Komputer diwajibkan:
                 <ol type="a">
+									<li>Menggunakan seragam Praktik yang rapih selama Jadwal Praktik</li>
                   <li>Mengisi <nuxt-link to="/rps/presensi">Presensi</nuxt-link> Penggunaan RPS selama KBM (Kegiatan Belajar Mengajar) oleh Sekretaris Kelas/Guru Mapel</li>
                   <li>Mencuci tangan dengan sabun sebelum masuk kedalam Laboratorium</li>
                   <li>Melepas alas kaki dan memakai kaos kaki yang bersih atau dilepas</li>
@@ -25,8 +26,9 @@
                 </ol>
               </li>
               <li>
-                Seluruh pengguna Laboratorium Komputer dilarang:
+                Seluruh Siswa Laboratorium Komputer dilarang:
                 <ol type="a">
+									<li>Merangkap seragam Praktik dengan seragam lain selama Jadwal Praktik (kecuali hari Senin)</li>
                   <li>Membawa atau makan, minum dan merokok di Laboratorium selama jam operasional</li>
                   <li>Membuang sampah didalam Laboratorium dan toilet</li>
                   <li>Membawa peralatan Laboratorium keluar ruangan Laboratorium tanpa izin Laobran</li>
