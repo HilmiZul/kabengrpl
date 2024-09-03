@@ -9,7 +9,7 @@
           <div class="card-body">
             <p>Prosedur Operasi Standar / Tata Tertib Penggunaan RPS RPL SMKN 4 Tasikmalaya</p>
             <ol>
-              <li>Waktu Operasional pukul 07.00 - 17.00 dan istirahat pukul 12.00 - 13.00 WIB</li>
+              <li>Waktu Operasional pukul 07.00 - 16.00 dan istirahat pukul 12.00 - 13.00 WIB</li>
               <li>
                 Seluruh Siswa Laboratorium Komputer diwajibkan:
                 <ol type="a">
