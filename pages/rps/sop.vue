@@ -29,15 +29,15 @@
                 Seluruh Siswa Laboratorium Komputer dilarang:
                 <ol type="a">
 									<li>Merangkap seragam Praktik dengan seragam lain selama Jadwal Praktik (kecuali hari Senin)</li>
-                  <li>Membawa atau makan, minum dan merokok di Laboratorium selama jam operasional</li>
+                  <li>Membawa atau makan, minum dan merokok di Laboratorium</li>
                   <li>Membuang sampah didalam Laboratorium dan toilet</li>
                   <li>Membawa peralatan Laboratorium keluar ruangan Laboratorium tanpa izin Laobran</li>
                   <li>Meninggalkan barang apapun milik pribadi tanpa seizin Laboran</li>
                   <li>Meminjamkan alat (Komputer & Laptop) selain untuk pembelajaran</li>
-                  <li>Menulis/menggambar di dinding dan meja Laboratorium</li>
+                  <li>Menulis/menggambar di dinding, meja dan alat di Laboratorium</li>
                   <li>Berisik, memutar musik/karaoke saat jam operasional</li>
                   <li>Dilarang membawa orang luar Sekolah</li>
-                  <li>Dilarang membawa orang luar Jurusan (terkecuali izin kepada Kabeng/Kaprog)</li>
+                  <li>Dilarang membawa orang luar Jurusan (terkecuali izin kepada Laboran/Kabeng)</li>
                 </ol>
               </li>
             </ol>
