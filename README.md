@@ -44,3 +44,15 @@ Locally preview production build:
 npm run preview
 ```
 
+## Contribute
+I'm no sure people want to contribute to this project, but feel free if you want to contribute like bug report, bug fix or create feature.
+Follow the instruction bellow to get started.
+
+- Fork this repo into your repository
+- Clone from your repository
+- Create new branch
+- Start contribute
+
+If you want merge with main branch, please create pull request to main repository.
+
+To connect with Backend or API, please contact me.
