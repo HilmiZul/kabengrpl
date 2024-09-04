@@ -46,7 +46,7 @@ npm run preview
 
 ## Contribute
 Feel free if you want to contribute like bug report, bug fix or create feature.
-Follow the instruction bellow to get started.
+Follow the instruction below to get started.
 
 - Fork this repo into your repository
 - Clone from your repository
