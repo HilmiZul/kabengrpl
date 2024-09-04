@@ -7,8 +7,8 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 - Peminjaman ruangan
 - Presensi RPS
 - Pengaturan
-  - Alat (add, change)
-  - Ruang (add, change)
+  - Alat
+  - Ruang
 
 ## Technology Stack
 - Vue/[Nuxt](https://nuxt.com/docs/getting-started/introduction)
