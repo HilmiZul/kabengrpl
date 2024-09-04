@@ -45,7 +45,7 @@ npm run preview
 ```
 
 ## Contribute
-I'm no sure people want to contribute to this project, but feel free if you want to contribute like bug report, bug fix or create feature.
+Feel free if you want to contribute like bug report, bug fix or create feature.
 Follow the instruction bellow to get started.
 
 - Fork this repo into your repository
