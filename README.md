@@ -55,4 +55,4 @@ Follow the instruction bellow to get started.
 
 If you want merge with main branch, please create pull request to main repository.
 
-To connect with Backend or API, please contact me.
+To connect with Backend or API, please contact Developer.
