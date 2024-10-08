@@ -4,7 +4,7 @@
     <ClientOnly>
       <DarkMode />
     </ClientOnly>
-    <Header title="Kabeng RPL." />
+    <Header title="Kabeng PPLG." />
     <Nav />
     <slot />
     <Footer />
