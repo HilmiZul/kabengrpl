@@ -2,11 +2,12 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-12 title pb-3">
-        <div class="intro-teks s6 folk" data-aos="zoom-in">
+        <div class="intro-teks s6" data-aos="zoom-in">
           <img src="@/assets/img/PPLG.webp" class="icon" alt="logo">
-          {{ title }}
+          {{ title.split(' ')[0] }}
+          <span class="folk">{{ title.split(' ')[1] }}</span>
         </div>
-        <div class="detail-teks my-2">Catatan Kepala Bengkel RPL SMKN 4 Tasikmalaya.</div>
+        <!-- <div class="detail-teks my-2">Catatan Kepala Bengkel PPLG SMKN 4 Tasikmalaya.</div> -->
       </div>
     </div>
   </div>
