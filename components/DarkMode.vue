@@ -15,13 +15,13 @@ function changeMode() {
     body.style.backgroundImage = "none";
     currMode.value = "🌙";
   } else {
-    body.style.backgroundColor = "transparent";
-    body.style.backgroundImage =
-      "linear-gradient( 109.6deg,  rgb(53, 95, 145) 18.9%, rgb(61, 148, 177) 91.1% )";
-    body.style.backgroundRepeat = "no-repeat";
-    body.style.backgroundPosition = "center center";
-    body.style.backgroundAttachment = "fixed";
-    body.style.backgroundSize = "cover";
+    body.style.backgroundColor = "#135D66";
+    // body.style.backgroundImage =
+    //   "linear-gradient( 109.6deg,  rgb(53, 95, 145) 18.9%, rgb(61, 148, 177) 91.1% )";
+    // body.style.backgroundRepeat = "no-repeat";
+    // body.style.backgroundPosition = "center center";
+    // body.style.backgroundAttachment = "fixed";
+    // body.style.backgroundSize = "cover";
     currMode.value = "🔆";
   }
 }
