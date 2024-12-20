@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import type { NuxtError } from '#app';
-useHead({ title: "404: Page not found 👀" })
+useHead({ title: "Error Page 👀" })
 const props = defineProps({
   error: Object as () => NuxtError
 })
