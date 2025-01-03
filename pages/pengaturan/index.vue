@@ -88,7 +88,7 @@
                     <tr v-if="loading"><td colspan="3" class="text-center"><Loading /></td></tr>
                     <tr v-else v-for="(room, i) in rooms" :key="i">
                       <td width="5%">{{ i+1 }}.</td>
-                      <td><span @click="setRoomIdToUpdate(room.id)" class="link" data-bs-toggle="modal" :data-bs-target="`#updateRoom-${room.id}`">{{ room.namaRoom }}</span></td>
+                      <td><div @click="setRoomIdToUpdate(room.id)" class="link" data-bs-toggle="modal" :data-bs-target="`#updateRoom-${room.id}`">{{ room.namaRoom }}</div></td>
                       <div class="modal fade" :id="`updateRoom-${room.id}`">
                         <div class="modal-dialog">
                           <div class="modal-content">

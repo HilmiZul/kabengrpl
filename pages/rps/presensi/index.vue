@@ -49,7 +49,7 @@
                     <h3 class="text-center py-3">kosong</h3>
                   </div>
                   <div class="card-footer text-center">
-                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-outline-light rounded-pill me-2">Masuk</nuxt-link>
+                    <nuxt-link :to="`/rps/presensi/${ruang.id}`" class="btn btn-danger rounded-pill me-2">Masuk</nuxt-link>
                   </div>
                 </div>
               </div>
