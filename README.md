@@ -1,4 +1,4 @@
-# KABENG RPL
+# KABENG PPLG 
 Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 - Inventarisir alat
 - _Issue_ alat
