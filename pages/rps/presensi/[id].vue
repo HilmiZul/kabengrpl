@@ -163,9 +163,9 @@ async function getGuru() {
 }
 
 async function getKelas() {
-  let tingkat = 'XII'
+  let tingkat = 'XI'
   if(rpsID === '1' || rpsID === '2') {
-    tingkat = 'XI'
+    tingkat = 'X'
   }
   let { data, error } = await client
     .from('kelas')
