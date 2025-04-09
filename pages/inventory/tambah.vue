@@ -60,8 +60,9 @@
                   <div class="form-group mb-3">
                     <label>Satuan</label>
                     <select v-model="tempData.satuan" class="form-control form-select" required>
-                      <option value="unit">Unit</option>
                       <option value="set">Set</option>
+                      <option value="unit">Unit</option>
+                      <option value="buah">Buah</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
