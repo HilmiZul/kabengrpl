@@ -53,6 +53,7 @@ async function getCountRps() {
     .from('inv_room')
     .select('*', { count: 'exact' })
     .neq('nomor', 5)
+    .neq('nomor', 7)
   if(data) jumlahRPS.value = count
   if(error) throw error
 }
