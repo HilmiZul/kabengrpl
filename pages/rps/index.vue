@@ -7,7 +7,7 @@
             <h4 class="title">{{ title }}</h4>
           </div>
           <div class="card-body ps-4 pe-4">
-            <p>Setiap alat tersebar di Lokasi berikut</p>
+            <p>KIR digital tersebar di lokasi berikut</p>
             <div class="row">
               <div class="col-lg-12">
                 <div v-if="loading" class="text-center m-5">
@@ -16,7 +16,7 @@
               </div>
               <div class="container-fluid">
                 <div class="row">
-                  <div v-for="(room,i) in rooms" :key="room.id" class="col-lg-4">
+                  <div v-for="(room) in rooms" :key="room.id" class="col-lg-4">
                     <router-link :to="{ path: '/rps/' + room.id }" class="btn btn-block">
                       <div class="card item mt-3 mb-3 text-white" data-aos="zoom-in">
                         <!-- <div class="badge bg-light text-dark">
@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-const title = "Semua Ruangan di Gedung RPS"
+const title = "Gedung RPS"
 useHead({ title: `${title} / Kabeng RPL` })
 const client = useSupabaseClient()
 
