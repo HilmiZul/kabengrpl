@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-12 title pb-3">
-        <div class="intro-teks s6" data-aos="zoom-in">
+        <div class="intro-teks s6">
           <img src="@/assets/img/PPLG.webp" class="icon" alt="logo">
           {{ title }}
         </div>
