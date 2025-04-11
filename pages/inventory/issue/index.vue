@@ -18,12 +18,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">&nbsp;🔎</span>
                   </div>
-                  <input 
+                  <input
                   v-model="keyword"
                   name="keyword"
-                  id="keyword" 
-                  type="search" 
-                  class="form-control" 
+                  id="keyword"
+                  type="search"
+                  class="form-control"
                   :placeholder="searchPlaceholder()"
                   :disabled="items.length < 1">
                 </div>
@@ -55,7 +55,7 @@
                           <div class="modal-content">
                             <div class="modal-header bg-success text-white"><h5>Sudah diperbaiki?</h5></div>
                             <div class="modal-body">
-                              <div class="badge bg-success rounded-pill p-2">🏷 {{ item.kategori.nama }}</div>
+                              <div class="badge bg-success rounded-pill p-2">🏷 {{ item.kategori?.nama }}</div>
                               <form @submit.prevent="handleRecovery()">
                                 <table class="table">
                                   <tbody>
@@ -70,16 +70,16 @@
                                   </tbody>
                                 </table>
                                 <div class="mb-3">
-                                  <textarea 
-                                    v-model="formCatatan" 
-                                    class="form-control" 
-                                    name="catatan" 
+                                  <textarea
+                                    v-model="formCatatan"
+                                    class="form-control"
+                                    name="catatan"
                                     id="catatan" rows="3"
                                     placeholder="Tulis catatan perbaikan..."></textarea>
                                 </div>
                                 <div class="text-end">
-                                  <button 
-                                    type="submit" 
+                                  <button
+                                    type="submit"
                                     class="btn btn-outline-light text-dark rounded-pill me-2"
                                     data-bs-dismiss="modal" :disabled="loading || formCatatan.length < 2">
                                     <span v-if="loading"><Loading /></span>
@@ -97,7 +97,7 @@
                     <td>
                       <span v-if="item.kondisi === 'RR'">🟡 Rusak Ringan</span>
                       <span v-else-if="item.kondisi === 'RS'">🟠 Rusak Sedang</span>
-                      <span v-else="item.kondisi === 'RB'">🔴 Rusak Berat</span>
+                      <span v-else-if="item.kondisi === 'RB'">🔴 Rusak Berat</span>
                     </td>
                     <td>{{ item.catatan }}</td>
                     <td><nuxt-link :to="`/rps/${item.lokasi.id}`">{{ item.lokasi.namaRoom }}</nuxt-link></td>
@@ -197,7 +197,7 @@ async function loadMore() {
 }
 
 async function updateKondisiAlat() {
-  let { error } = await client 
+  let { error } = await client
     .from('inv_barang')
     .update({
       kondisi: 'B'
@@ -243,7 +243,7 @@ const itemFiltered = computed(() => {
     return (
       i.namaBarang.toLowerCase().includes(keyword.value.toLowerCase()) ||
       i.lokasi.namaRoom.toLowerCase().includes(keyword.value.toLowerCase()) ||
-      i.catatan.toLowerCase().includes(keyword.value.toLowerCase()) 
+      i.catatan.toLowerCase().includes(keyword.value.toLowerCase())
     )
   })
 })
