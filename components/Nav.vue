@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-auto">
-        <nav class="nav justify-content-center pt-3 pb-3 mb-4 proto rounded-pill">
+        <nav class="nav justify-content-center pt-3 pb-3 mb-4 rounded-pill">
           <nuxt-link to="/" class="nav-link"><span class="nav-text">HOME</span></nuxt-link>
           <nuxt-link to="/rps" class="nav-link"><span class="nav-text">RPS</span></nuxt-link>
           <nuxt-link to="/inventory" class="nav-link"><span class="nav-text">ALAT</span></nuxt-link>
@@ -38,7 +38,7 @@ const user = useSupabaseUser()
   .nav .nav-link {
     color: #6c6c6c !important;
     transition: all .3s ease;
-    font-size: .8rem !important;
+    font-size: .9rem !important;
     color: #fff !important;
     padding-left: 1em;
     padding-right: 1em;
@@ -55,7 +55,7 @@ const user = useSupabaseUser()
 .nav .nav-link {
   color: #fff;
   transition: all .3s ease;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   padding-top: 0;
   padding-bottom: 0;
 }
