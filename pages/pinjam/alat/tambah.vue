@@ -39,10 +39,10 @@
                   </div>
                   <div class="form-group mb-3">
                     <label for="barang">Pilih Alat/barang</label>
-                    <select 
-                      v-model="inputBarang" 
-                      id="barang" 
-                      class="form-control form-select" 
+                    <select
+                      v-model="inputBarang"
+                      id="barang"
+                      class="form-control form-select"
                       :disabled="inputPeminjam.length < 4"
                       required>
                       <option value="">&#8212; Pilih &#8212;</option>
@@ -54,17 +54,17 @@
                   </div>
                   <div class="form-group mb-3">
                     <label for="keperluan">Keperluannya apa?</label>
-                    <textarea 
-                      v-model="inputKeperluan" 
-                      id="keperluan" 
-                      class="form-control" 
+                    <textarea
+                      v-model="inputKeperluan"
+                      id="keperluan"
+                      class="form-control"
                       :disabled="inputBarang.length < 1"
                       cols="30" rows="4" placeholder="Tulis keperluan meminjam alat ini..." required></textarea>
                   </div>
                   <p>
-                    <em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap alat/barang yang dipinjam sesuai dengan <NuxtLink to="/rps/sop" class="link2">SOP poin 2.i</NuxtLink>.</em>
+                    <em>Dengan menekan tombol "Pinjam", saya bertanggung jawab terhadap alat/barang yang dipinjam sesuai dengan <NuxtLink to="/rps/sop" class="link2">SOP</NuxtLink>.</em>
                   </p>
-                  <button class="btn btn-outline-light rounded-pill me-3" 
+                  <button class="btn btn-outline-light rounded-pill me-3"
                     :disabled="sending || inputRole.length < 1 || inputPeminjam.length < 4 || inputBarang.length < 1 || inputKeperluan.length < 10">
                     <span v-if="sending">Mengirim...</span>
                     <span v-else>Pinjam</span>
@@ -96,14 +96,14 @@ async function getItemsBarang() {
   let { data, error } = await client
     .from("inv_barang")
     .select(`
-      id, namaBarang, 
+      id, namaBarang,
       kategori(id, nama),
       lokasi(namaRoom), kondisi
     `)
-    .neq('kategori', 4)
+    //.neq('kategori', 4)
     .eq('kondisi', 'B')
     .order("namaBarang")
-  
+
   if(data) items.value = data
   if(error) throw error
 }
