@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "kabengrpl"
-          entrypoint: ""
-          root: "dist"
+          entrypoint: ".output/server/index.mjs"
+          root: ".output"
           
           
