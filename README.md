@@ -9,12 +9,12 @@ Aplikasi catatan Kepala Bengkel RPL (KIR _online_)
 - Pengaturan
   - Alat
   - Ruang
+  - Konten SOP
 
 ## Ingridients
 
 - [Node](https://nodejs.org)
-- [Vue](https://vuejs.org)
-- [Nuxt](https://nuxt.com)
+- [Vue](https://vuejs.org)/[Nuxt](https://nuxt.com)
 
 ## Setup
 
@@ -46,15 +46,3 @@ Locally preview production build:
 npm run preview
 ```
 
-## Contribute
-Feel free if you want to contribute like bug report, bug fix or create feature.
-Follow the instruction below to get started.
-
-- Fork this repo into your repository
-- Clone from your repository
-- Create new branch
-- Start contribute
-
-If you want merge with main branch, please create pull request to main repository.
-
-To connect with Backend or API, please contact Developer.
