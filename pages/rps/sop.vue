@@ -7,7 +7,7 @@
             <h4 class="title">{{ title }}</h4>
           </div>
           <div class="card-body">
-            <span v-html="content"></span>
+            <MDC v-if="content" :value="content" tag="article" />
             <div class="mt-3"><em class="text-muted">Last update: {{ update }}</em></div>
           </div>
         </div>

@@ -143,7 +143,7 @@
               <div class="col-lg-6">
                 Preview
                 <h4>{{ formSop.title }}</h4>
-                <MDC :value="formSop.content" />
+                <MDC v-if="formSop" :value="formSop.content" tag="article" />
               </div>
             </div>
 
