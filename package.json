@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "version": "2.0.0",
+  "name": "kabengrpl",
+  "author": "Zul Hilmi",
+  "version": "2.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -11,8 +11,9 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.5.0",
-    "nuxt": "^3.18.0",
-    "@nuxtjs/supabase": "^1.2.2"
+    "@nuxtjs/mdc": "^0.21.1",
+    "@nuxtjs/supabase": "^1.2.2",
+    "nuxt": "^3.18.0"
   },
   "dependencies": {
     "aos": "^2.3.4",
