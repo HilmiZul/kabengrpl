@@ -162,7 +162,7 @@
                     </td>
                   </tr>
                   <tr v-if="itemFiltered.length < 1 && !loading">
-                    <td colspan="14" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
+                    <td colspan="15" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
                   </tr>
                   <tr v-if="loading">
                     <td colspan="15" class="text-center">
