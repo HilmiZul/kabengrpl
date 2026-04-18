@@ -20,6 +20,14 @@
                 </div>
                 <form @submit.prevent="onSimpan">
                   <div class="form-group mb-3">
+                    <label>Tahun</label>
+                    <input
+                      v-model="tempData.tahun"
+                      type="number"
+                      class="form-control" required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
                     <label for="jenis">Jenis</label>
                     <select v-model="tempData.jenis" id="jenis" class="form-control form-select" required>
                       <option value="Aset">Aset</option>
@@ -29,7 +37,7 @@
                   <div class="form-group mb-3">
                     <label for="category">Kategori</label>
                     <select v-model="tempData.kategori" id="category" class="form-control form-select" required>
-                      <option v-for="cat in categories" :key="cat.id" :value="cat.id">
+                      <option v-for="cat in categories" :key="cat.id" :value="cat">
                         {{ cat.nama }}
                       </option>
                     </select>
@@ -42,18 +50,18 @@
                     <label>Spesifikasi</label>
                     <textarea v-model="tempData.spesifikasi" cols="30" rows="3" class="form-control" required></textarea>
                   </div>
-                  <div class="form-group mb-3">
-                    <label>Qty</label>
-                    <input v-model="tempData.qty" type="number" class="form-control" required />
-                  </div>
-                  <div class="form-group mb-3">
-                    <label>Kode</label>
-                    <input v-model="tempData.kode" type="text" class="form-control" required />
-                  </div>
+                  <!-- <div class="form-group mb-3"> -->
+                  <!--   <label>Qty</label> -->
+                  <!--   <input v-model="tempData.qty" type="number" class="form-control" required /> -->
+                  <!-- </div> -->
+                  <!-- <div class="form-group mb-3"> -->
+                  <!--   <label>Kode</label> -->
+                  <!--   <input v-model="tempData.kode" type="text" class="form-control" required /> -->
+                  <!-- </div> -->
                   <div class="form-group mb-3">
                     <label for="lokasi">Lokasi</label>
                     <select v-model="tempData.lokasi" id="lokasi" class="form-control form-select" required>
-                      <option v-for="room in rooms" :key="room.id" :value="room.id">
+                      <option v-for="room in rooms" :key="room.id" :value="room">
                         {{ room.namaRoom }}
                       </option>
                     </select>
@@ -61,9 +69,9 @@
                   <div class="form-group mb-3">
                     <label>Satuan</label>
                     <select v-model="tempData.satuan" class="form-control form-select" required>
-                      <option value="unit">Unit</option>
-											<option value="buah">Buah</option>
                       <option value="set">Set</option>
+                      <option value="unit">Unit</option>
+                      <option value="buah">Buah</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
@@ -82,14 +90,6 @@
                     </select>
                   </div>
                   <div class="form-group mb-3">
-                    <label>Tahun</label>
-                    <input
-                      v-model="tempData.tahun"
-                      type="number"
-                      class="form-control" required
-                    />
-                  </div>
-                  <div class="form-group mb-3">
                     <label>Kondisi</label>
                     <select v-model="tempData.kondisi" class="form-control form-select" required>
                       <option value="B">Baik</option>
@@ -105,6 +105,94 @@
                     </button>
                     <span v-if="isSaved"><em>Tersimpan!</em></span>
                   </div>
+
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label for="jenis">Jenis</label> -->
+											<!--          <select v-model="tempData.jenis" id="jenis" class="form-control form-select" required> -->
+											<!--            <option value="Aset">Aset</option> -->
+											<!--            <option value="Non Aset">Non Aset</option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label for="category">Kategori</label> -->
+											<!--          <select v-model="tempData.kategori" id="category" class="form-control form-select" required> -->
+											<!--            <option v-for="cat in categories" :key="cat.id" :value="cat.id"> -->
+											<!--              {{ cat.nama }} -->
+											<!--            </option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Nama Barang</label> -->
+											<!--          <input v-model="tempData.namaBarang" type="text" class="form-control" required /> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Spesifikasi</label> -->
+											<!--          <textarea v-model="tempData.spesifikasi" cols="30" rows="3" class="form-control" required></textarea> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Qty</label> -->
+											<!--          <input v-model="tempData.qty" type="number" class="form-control" required /> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Kode</label> -->
+											<!--          <input v-model="tempData.kode" type="text" class="form-control" required /> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label for="lokasi">Lokasi</label> -->
+											<!--          <select v-model="tempData.lokasi" id="lokasi" class="form-control form-select" required> -->
+											<!--            <option v-for="room in rooms" :key="room.id" :value="room.id"> -->
+											<!--              {{ room.namaRoom }} -->
+											<!--            </option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Satuan</label> -->
+											<!--          <select v-model="tempData.satuan" class="form-control form-select" required> -->
+											<!--            <option value="unit">Unit</option> -->
+											<!-- <option value="buah">Buah</option> -->
+											<!--            <option value="set">Set</option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Merek</label> -->
+											<!--          <input v-model="tempData.merek" type="text" class="form-control" required /> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label for="sumber">Sumber</label> -->
+											<!--          <select -->
+											<!--            v-model="tempData.sumber" -->
+											<!--            id="sumber" -->
+											<!--            class="form-control form-select" required> -->
+											<!--            <option v-for="s in sumber" :key="s.id" :value="s.id"> -->
+											<!--              {{ s.namaSumber }} -->
+											<!--            </option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Tahun</label> -->
+											<!--          <input -->
+											<!--            v-model="tempData.tahun" -->
+											<!--            type="number" -->
+											<!--            class="form-control" required -->
+											<!--          /> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <label>Kondisi</label> -->
+											<!--          <select v-model="tempData.kondisi" class="form-control form-select" required> -->
+											<!--            <option value="B">Baik</option> -->
+											<!--            <option value="RR">Rusak Ringan</option> -->
+											<!--            <option value="RS">Rusak Sedang</option> -->
+											<!--            <option value="RB">Rusak Berat</option> -->
+											<!--          </select> -->
+											<!--        </div> -->
+											<!--        <div class="form-group mb-3"> -->
+											<!--          <button class="btn btn-outline-light rounded-pill me-3" :disabled="sending"> -->
+											<!--            <span v-if="sending">Menyimpan...</span> -->
+											<!--            <span v-else>Simpan</span> -->
+											<!--          </button> -->
+											<!--          <span v-if="isSaved"><em>Tersimpan!</em></span> -->
+											<!--        </div> -->
+
                 </form>
               </div>
             </div>
@@ -142,12 +230,14 @@ const tempData = ref({
   tahun: "",
   kondisi: "",
 })
+const jumlahAlat = ref(0)
 
 onMounted(() => {
   getData()
   getCategory()
   getSumber()
   getLokasi()
+  getJumlahAlat()
 })
 
 async function getData() {
@@ -187,9 +277,22 @@ async function getLokasi() {
   if(error) throw error
 }
 
+async function getJumlahAlat() {
+  let { data, error } = await client
+    .from('inv_barang')
+    .select()
+  if(data) jumlahAlat.value = data.length
+  if(error) throw error
+}
+
 async function onSimpan() {
   sending.value = true
   isSaved.value = false
+  tempData.value.kode = `${tempData.value.tahun}/${tempData.value.kategori.nama}/${tempData.value.lokasi.nomor}/${jumlahAlat.value}`
+  tempData.value.kategori = tempData.value.kategori.id
+  tempData.value.lokasi = tempData.value.lokasi.id
+  tempData.value.qty = 1
+
   let { error } = await client
     .from('inv_barang')
     .update(tempData.value)
