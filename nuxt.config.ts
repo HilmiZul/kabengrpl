@@ -1,7 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import pkg from './package.json'
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxtjs/supabase"],
+  modules: ["@nuxtjs/supabase", "@nuxtjs/mdc"],
 
   supabase: {
     redirect: false
@@ -24,6 +25,12 @@ export default defineNuxtConfig({
         src: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js",
       }]
     },
+  },
+  runtimeConfig: {
+    public: {
+      appVersion: pkg.version,
+      author: pkg.author,
+    }
   },
 
   compatibilityDate: "2025-01-03"
