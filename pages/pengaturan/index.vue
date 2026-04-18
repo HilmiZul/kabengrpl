@@ -1,15 +1,17 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
+      <div class="col-lg-10">
         <div class="card data-table mb-5">
           <div class="card-header">
             <h4 class="title">Pengaturan</h4>
             <ul class="nav">
               <li @click="changeTab(1)" class="nav-item nav-link">Alat</li>
               <li @click="changeTab(2)" class="nav-item nav-link">Ruang</li>
+              <li @click="changeTab(3)" class="nav-item nav-link">SOP</li>
             </ul>
           </div>
+
           <div class="card-body">
             <div v-if="tabs[0].visible" class="row">
               <div class="col-lg-6">
@@ -65,7 +67,7 @@
                 </table>
               </div>
             </div>
-            
+
             <div v-if="tabs[1].visible" class="row">
               <div class="col-lg-6">
                 <form @submit.prevent="saveNewRuang">
@@ -118,8 +120,33 @@
                     </tr>
                   </tbody>
                 </table>
+
               </div>
             </div>
+
+            <div v-if="tabs[2].visible" class="row">
+              <div class="col-lg-6">
+                <form @submit.prevent="saveUpdateSop">
+                  <h5>SOP</h5>
+                  <hr>
+                  <div class="mb-3">
+                    <label for="titleSop">Judul SOP</label>
+                    <input v-model="formSop.title" class="form-control" id="titleSop" type="text" placeholder="contoh: SOP (Standar Operasional Prosedur" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="sop">Konten SOP</label>
+                    <textarea v-model="formSop.content" id="sop" class="form-control" cols="30" rows="7" placeholder="misal: Lab pengembangan game" required :disabled="loading"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-outline-light rounded-5" :disabled="loading">Simpan</button>
+                </form>
+              </div>
+              <div class="col-lg-6">
+                Preview
+                <h4>{{ formSop.title }}</h4>
+                <MDC :value="formSop.content" />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -146,6 +173,11 @@ const tabs = ref([
     name: 'Ruang',
     visible: false
   },
+  {
+    id: 3,
+    name: 'SOP',
+    visible: false
+  },
 ])
 const form = ref({
   nama: "",
@@ -158,6 +190,11 @@ const formUpdate = ref({
 const formRuang = ref({
   namaRoom: "",
   keterangan: ""
+})
+
+const formSop = ref({
+  title: "",
+  content: "",
 })
 const loading = ref(true)
 const loadingModal = ref(true)
@@ -178,6 +215,19 @@ async function getRuang() {
     .from('inv_room')
     .select()
   if(data) rooms.value = data
+}
+
+async function getSop() {
+  let { data, error } = await client
+    .from('inv_sop')
+    .select()
+    .single()
+    .eq('id', 1)
+  if(data) {
+    formSop.value = data
+  } else {
+    console.error(error)
+  }
 }
 
 function setCatIdToUpdate(id) {
@@ -252,6 +302,26 @@ async function saveUpdateRoom(id) {
   }
 }
 
+async function saveUpdateSop() {
+  loading.value = true
+  let { data, error } = await client
+    .from('inv_sop')
+    .update({
+      title: formSop.value.title,
+      content: formSop.value.content
+    })
+    .eq('id', 1)
+    .select()
+  if(data) {
+    getSop()
+    formSop.value.title = ""
+    formSop.value.content = ""
+    loading.value = false
+  } else {
+    console.error(error)
+  }
+}
+
 async function saveNewCat() {
   loading.value = true
   let { data, error } = await client
@@ -284,15 +354,23 @@ function changeTab(id) {
   if(id === tabs.value[0].id) {
     tabs.value[0].visible = true
     tabs.value[1].visible = false
+    tabs.value[2].visible = false
   } else if(id === tabs.value[1].id) {
     tabs.value[0].visible = false
     tabs.value[1].visible = true
+    tabs.value[2].visible = false
+  } else if(id === tabs.value[2].id) {
+    tabs.value[0].visible = false
+    tabs.value[1].visible = false
+    tabs.value[2].visible = true
   }
+
 }
 
 onMounted(() => {
   getKategoriAlat()
   getRuang()
+  getSop()
 })
 </script>
 
@@ -321,6 +399,6 @@ a.btn {
 }
 .link {
   cursor: pointer;
-  border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
 }
 </style>
