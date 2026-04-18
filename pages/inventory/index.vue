@@ -9,43 +9,49 @@
               {{ title }}
               <nuxt-link to="/inventory/tambah" v-if="user" class="btn btn-outline-light btn-sm rounded-pill me-2">Tambah</nuxt-link>
               <nuxt-link to="/inventory/issue" v-if="user" class="btn btn-light btn-sm rounded-pill">Issue</nuxt-link>
-              <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
+              <span v-if="!loading" class="text-small float-end">
+                {{ items.length }} dari <span v-if="keyword">{{ items.length }}</span> <span v-else>{{ countItem }}</span> 
+              </span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
               <span v-if="updateDelete" class="text-small float-end me-2">🔴</span>
             </h4>
           </div>
+
           <div class="card-body">
             <div class="row">
               <div class="col-lg-4">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">&nbsp;🔎</span>
+                <form @submit.prevent="getItems">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">&nbsp;🔎</span>
+                    </div>
+                    <input 
+                      v-model="keyword" 
+                      type="search" 
+                      class="form-control" 
+                      :placeholder="searchPlaceholder()"
                   </div>
-                  <input 
-                    v-model="keyword" 
-                    type="search" 
-                    class="form-control" 
-                    :placeholder="searchPlaceholder()"
-                    :disabled="items.length < 1">
-                </div>
+                </form>
               </div>
-              <div class="col-lg-2">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">&nbsp;🧩</span>
-                  </div>
-                  <select v-model="keyword" id="filterCepat" class="form-control form-select">
-                    <option value="">Filter cepat</option>
-                    <option value="aset">Jenis: Aset</option>
-                    <option value="non aset">Jenis: Non Aset</option>
-                    <option value="pk">Sumber: PK</option>
-                    <option value="dak">Sumber: DAK</option>
-                    <option value="bos">Sumber: BOS</option>
-                    <option value="bopd">Sumber: BOPD</option>
-                  </select>
-                </div>
-              </div>
+
+              <!-- <div class="col-lg-2"> -->
+              <!--   <div class="input-group mb-3"> -->
+              <!--     <div class="input-group-prepend"> -->
+              <!--       <span class="input-group-text">&nbsp;🧩</span> -->
+              <!--     </div> -->
+              <!--     <select @change="getItems" v-model="keyword" id="filterCepat" class="form-control form-select"> -->
+              <!--       <option value="">Filter cepat</option> -->
+              <!--       <option value="aset">Jenis: Aset</option> -->
+              <!--       <option value="non aset">Jenis: Non Aset</option> -->
+              <!--       <option value="pk">Sumber: PK</option> -->
+              <!--       <option value="dak">Sumber: DAK</option> -->
+              <!--       <option value="bos">Sumber: BOS</option> -->
+              <!--       <option value="bopd">Sumber: BOPD</option> -->
+              <!--     </select> -->
+              <!--   </div> -->
+              <!-- </div> -->
             </div>
+
             <div class="table-responsive">
               <table class="table  text-white">
                 <thead>
@@ -70,8 +76,9 @@
                     <th>RB</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr v-for="(item, i) in itemFiltered" :key="item.id">
+                  <tr v-for="(item, i) in items" :key="item.id">
                     <td class="text-center">{{ i+1 }}.</td>
                     <td class="text-center">{{ item.kategori.nama }}</td>
                     <td>{{ item.namaBarang }}</td>
@@ -99,7 +106,7 @@
                       <button @click="deleteItem(item.id, i)" class="btn btn-light btn-sm">❌</button>
                     </td>
                   </tr>
-                  <tr v-if="itemFiltered.length < 1 && !loading">
+                  <tr v-if="items.length < 1 && !loading">
                     <td colspan="16" class="text-center"><em>tidak ada data atau belum dimuat</em></td>
                   </tr>
                   <tr v-if="loading">
@@ -110,13 +117,17 @@
                 </tbody>
               </table>
             </div>
+
             <div v-if="!loading && items.length < countItem" class="text-center">
               <button @click="loadMore" class="btn btn-light rounded-pill">🔎 muat lagi</button>
             </div>
           </div>
+
           <div class="card-footer">
             <h4 class="title">
-              <span v-if="!loading" class="text-small float-end"> {{ itemFiltered.length }} dari {{ countItem }}</span>
+              <span v-if="!loading" class="text-small float-end">
+                {{ items.length }} dari <span v-if="keyword">{{ items.length }}</span> <span v-else>{{ countItem }}</span> 
+              </span>
               <span v-else class="text-small float-end"><em>loading...</em></span>
             </h4>
           </div>
@@ -136,6 +147,7 @@ const keyword = ref("")
 const loading = ref(true)
 const countItem = ref(0)
 const updateDelete = ref(false)
+const perPage = ref(49)
 
 async function getItemsCount() {
   let { data, error } = await client
@@ -148,46 +160,96 @@ async function getItemsCount() {
 
 async function getItems() {
   loading.value = true
-  let { data, error } = await client
-    .from('inv_barang')
-    .select(`
-      id, kategori(nama),
-      namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
-      sumber(namaSumber), kode, lokasi(namaRoom)
-    `)
-    .range(0, 29)
-    .order('tahun', { ascending: false } )
-  
-  if(data) {
-    items.value = data
-    loading.value = false
-  }
+  let filter = ``
 
-  if(error) throw error
+  if(keyword.value) {
+    filter = keyword.value
+
+    let { data, error } = await client
+      .from('inv_barang')
+      .select(`
+        id, kategori(nama),
+        namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
+        sumber(namaSumber), kode, lokasi(namaRoom)
+      `)
+      .ilike('namaBarang', `%${filter}%`)
+      .range(0, perPage.value)
+      .order('tahun', { ascending: false } )
+    
+    if(data) {
+      items.value = data
+      loading.value = false
+    }
+
+    if(error) throw error
+  } else {
+    let { data, error } = await client
+      .from('inv_barang')
+      .select(`
+        id, kategori(nama),
+        namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
+        sumber(namaSumber), kode, lokasi(namaRoom)
+      `)
+      .range(0, perPage.value)
+      .order('tahun', { ascending: false } )
+    
+    if(data) {
+      items.value = data
+      loading.value = false
+    }
+
+    if(error) throw error
+  }
 }
 
 async function loadMore() {
   loading.value = true
+  let filter = ``
+
   let limitStart = items.value.length
-  let limitEnd = limitStart + 29
-  let { data, error } = await client
-    .from('inv_barang')
-    .select(`
-      id, kategori(nama),
-      namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
-      sumber(namaSumber), kode, lokasi(namaRoom)
-    `)
-    .range(limitStart, limitEnd)
-    .order('tahun', { ascending: false })
-  
-    if(data) {
-      for (let i = 0; i < data.length; i++) {
-        // masukkan data yang udah di ambil sesuai range kedalam items (digabung)
-        items.value.push(data[i])
+  let limitEnd = limitStart + perPage.value
+
+  if(keyword.value) {
+    filter = keyword.value
+    let { data, error } = await client
+      .from('inv_barang')
+      .select(`
+        id, kategori(nama),
+        namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
+        sumber(namaSumber), kode, lokasi(namaRoom)
+      `)
+      .ilike('namaBarang', `%${filter}%`)
+      .range(limitStart, limitEnd)
+      .order('tahun', { ascending: false })
+    
+      if(data) {
+        for (let i = 0; i < data.length; i++) {
+          // masukkan data yang udah di ambil sesuai range kedalam items (digabung)
+          items.value.push(data[i])
+        }
+        loading.value = false
       }
-      loading.value = false
-    }
-    if(error) throw error
+      if(error) throw error
+  } else {
+    let { data, error } = await client
+      .from('inv_barang')
+      .select(`
+        id, kategori(nama),
+        namaBarang, spesifikasi, merek, tahun, kondisi, jenis,
+        sumber(namaSumber), kode, lokasi(namaRoom)
+      `)
+      .range(limitStart, limitEnd)
+      .order('tahun', { ascending: false })
+ 
+      if(data) {
+        for (let i = 0; i < data.length; i++) {
+          // masukkan data yang udah di ambil sesuai range kedalam items (digabung)
+          items.value.push(data[i])
+        }
+        loading.value = false
+      }
+      if(error) throw error
+  }
 }
 
 function searchPlaceholder() {
